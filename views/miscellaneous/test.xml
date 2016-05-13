@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+	<channel>
+		<title>Sample Feed</title>
+		<link>http://localhost</link>
+		<description>Sample Media RSS</description>
+		<item>
+			<title>Item 1</title>
+			<description>Item 1 Description</description>
+			<media:content url="http://localhost/images/test.jpg" type="image/jpeg"></media:content>
+		</item>
+	</channel>
+</rss>

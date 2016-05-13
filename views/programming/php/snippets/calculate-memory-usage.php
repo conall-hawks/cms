@@ -1,0 +1,1 @@
+echo @round(memory_get_usage(true)/pow(1024,($i=floor(log(memory_get_usage(true),1024)))),2).' '.array('b','kb','mb','gb','tb','pb')[$i];

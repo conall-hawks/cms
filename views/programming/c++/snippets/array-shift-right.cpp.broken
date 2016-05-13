@@ -1,0 +1,23 @@
+
+//Demonstrates how to shift an array to the right N times.
+#include <iostream>
+#include <string>
+
+vector<int> shift_r(vector<int> &A, int K){
+    if(A.size() < 1) return A;
+    for(K; K > 0; K--){
+        int temp = A[A.size() - 1];
+        for(int index = A.size() - 1; index > 0; index--){
+            A[index] = A[index - 1];
+        }
+        A[0] = temp;
+    }
+    return A;
+}
+
+int main(){
+    vector temp = shift_r([3, 7, 5, 8, 10], 3);
+	for(int index = 0; index < temp.size(); index++){
+		std::cout << temp[index] << ', ';
+	}
+}

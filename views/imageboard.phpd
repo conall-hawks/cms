@@ -1,0 +1,228 @@
+<?php defined('BASEPATH') or die('Direct script access denied.'); ?>
+<aside class="content-nav">
+	<h2>Boards</h2>
+	<ul>
+		<li><a class="ajax-link" href="imageboard/a">/a/ - Anime</a></li>
+		<li><a class="ajax-link" href="imageboard/b">/b/ - Random</a></li>
+		<li><a class="ajax-link" href="imageboard/f">/f/ - Flash</a></li>
+		<li><a class="ajax-link" href="imageboard/gif">/gif/ - Animated GIFs</a></li>
+		<li><a class="ajax-link" href="imageboard/hr">/hr/ - High Resolution</a></li>
+		<li><a class="ajax-link" href="imageboard/mu">/mu/ - Music</a></li>
+		<li><a class="ajax-link" href="imageboard/news">/news/ - Current Events</a></li>
+		<li><a class="ajax-link" href="imageboard/p">/p/ - Photography</a></li>
+		<li><a class="ajax-link" href="imageboard/tv">/tv/ - Television & Videography</a></li>
+		<li><a class="ajax-link" href="imageboard/v">/v/ - Video Games</a></li>
+		<li><a class="ajax-link" href="imageboard/w">/w/ - Wallpapers</a></li>
+	</ul>
+</aside>
+
+<article class="content-box imageboard-box">
+	<link href="/includes/imageboard.css" rel="stylesheet" />
+	<h2>
+		<?php echo ($uri->arguments[0] ? 'Reply': 'New Thread'); ?>
+		<select>
+			<option selected></option>
+			<option value="post"><?php echo ($uri->arguments[0] ? 'Reply': 'New Thread'); ?></option>
+		</select>
+	</h2>
+	<form action="<?php $uri->path; ?>" method="post" enctype="multipart/form-data">
+		<input name="csrf_token" value="<?php echo $security->csrf_token; ?>" type="hidden" />
+		<table>
+			<tr>
+				<td colspan="2" rowspan="3">
+					<fieldset class="header-fieldset">
+						<legend>Header:</legend>
+						<input type="text" name="name" accesskey="n" placeholder="Name" maxlength="32" value="<?php if($login->getStatus()) echo $login->getUserName();?>" pattern="^[a-zA-Z][a-zA-Z0-9.\-_]{3,31}$" title="A username to be associated with the post." />
+						<input type="email" name="email" accesskey="e" placeholder="E-mail"  maxlength="96" pattern="[a-zA-Z0-9]+(?:(\.|_)[A-Za-z0-9!#$%&'*+/=?^`{|}~-]+)*@(?!([a-zA-Z0-9]*\.[a-zA-Z0-9]*\.[a-zA-Z0-9]*\.))(?:[A-Za-z0-9](?:[a-zA-Z0-9-]*[A-Za-z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?" title="An e-mail to be associated with the post." />
+						<input type="text" name="subject" accesskey="s" placeholder="Subject" maxlength="32" pattern="^[a-zA-Z0-9.\-_]+$" title="The topic of the post." />
+						<input type="password" name="password" accesskey="p" placeholder="Password" maxlength="256" title="A password for post management & deletion." />
+					</fieldset>
+				</td>
+				<td colspan="4" rowspan="5">
+					<fieldset class="message-fieldset">
+						<legend>Message:</legend>
+						<textarea name="message" cols="48" rows="9" accesskey="m" maxlength="2048" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." title="The text of the post."><?php if(isset($_GET['quote'])) echo '>>'.$_GET['quote'].' ';?></textarea>
+					</fieldset>
+					</td>
+			</tr>
+			<tr></tr>
+			<tr></tr>
+			<tr>
+				<td colspan="2" rowspan="2">
+					<fieldset class="info-fieldset">
+						<ul>
+							<li><?php echo $imageboard->fileTypes(); ?></li>
+							<li>Maximum file size allowed is 2 MB.</li>
+							<li>Images greater than 250x250 will be thumbnailed.</li>
+						</ul>
+					</fieldset>
+				</td>
+			</tr>
+			<tr></tr>
+			<tr>
+				<td colspan="<?php if($login->getStatus()){echo 4;}else{echo 2;} ?>" rowspan="2">
+					<fieldset class="file-fieldset">
+						<legend>File:</legend>
+						<input style="background:none;" type="file" name="file" size="35" accesskey="f" />
+					</fieldset>
+				</td>
+				<?php 
+					if(!$login->getStatus()){
+						echo '
+							<td colspan="2" rowspan="2">
+								<fieldset class="captcha-fieldset">
+									<legend>Captcha:</legend>
+									<img class="captcha" src="/includes/captcha/captcha.php" alt="Enter this text into the box below." />
+									<input type="text" name="captcha" size="6" accesskey="c" autocomplete="off" placeholder="Enter the text above." />
+								</fieldset>
+							</td>
+						';
+					}
+				?>
+				<td colspan="2" rowspan="2">
+					<fieldset class="submit-fieldset">
+						<input id="postSubmit" type="submit" value="Submit" accesskey="s" />
+					</fieldset>
+				</td>
+			</tr>
+			<tr></tr>
+		</table>
+	</form>
+</article>
+<style>
+.imageboard-box select {
+	background: black;
+	border: 1px solid lime;
+	display: none;
+	height: 28px;
+	font-size: 90%;
+	left: 1px;
+	padding: 0 1%;
+	position: absolute;
+	top: 1px;
+}
+
+
+.imageboard-box table {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.imageboard-box tr {
+	height: 50px;
+}
+
+.imageboard-box td {
+	position: relative;
+}
+
+.imageboard-box fieldset {
+	border: 1px solid teal;
+	left: 2%;
+	margin: 0;
+	padding: 0 .5em;
+	position: absolute;
+	top: -2px;
+	width: 91%;
+}
+
+.imageboard-box legend {
+	color: lime;
+}
+
+.imageboard-box .header-fieldset {
+	height: 140px;
+}
+
+.imageboard-box .header-fieldset input {
+	background: black;
+	border: 1px solid lime;
+	height: 20px;
+	padding: 0 1%;
+	margin-bottom: 8px;
+	width: 97%;
+}
+
+.imageboard-box .message-fieldset {
+	height: 249px;
+	left: 1%;
+	width: 94%;
+}
+
+.imageboard-box textarea {
+	background: black;
+	border: 1px solid lime;
+	height: 220px;
+	padding: 0 1%;
+	resize: none;
+	width: 97.5%;
+}
+
+.imageboard-box .info-fieldset {
+	height: 99px;
+}
+
+.imageboard-box .info-fieldset ul {
+	font-size: 90%;
+	list-style-position: inside;
+}
+
+.imageboard-box .file-fieldset {
+	vertical-align: middle;
+	height: 91px;
+}
+
+.imageboard-box .file-fieldset input {
+	height: 30px;
+	width: 99%;
+}
+
+.imageboard-box .captcha-fieldset {
+	height: 91px;
+}
+
+.imageboard-box .captcha-fieldset .captcha {
+	background: white;
+	border: 1px solid teal;
+	height: 50px !important;
+	margin-bottom: -1px;
+	width: 99%;
+}
+
+.imageboard-box .captcha-fieldset input {
+	background: black;
+	border: 1px solid teal;
+	height: 20px;
+	padding: 0 1%;
+	width: 97%;
+}
+
+.imageboard-box .submit-fieldset {
+	top: 8px;
+	width: 88%;
+	line-height: 81px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.imageboard-box .submit-fieldset input {
+	background: black;
+	padding: 1% 8%;
+}
+</style>
+
+<?php /*
+	include_once('views/imageboard/form.php');
+	include_once('views/imageboard/post.php');
+	$posts = $imageboard->getDb()->query('SELECT * FROM `posts` WHERE `parent` = 0 ORDER BY `bumped` DESC LIMIT 100;');
+	if($posts) foreach($posts as $post){
+		echo '<div class="contentDiv post" id="p'.$post['id'].'">';
+		echo buildPost($post);
+		$replies = $imageboard->getDb()->query('SELECT * FROM `posts` WHERE `parent` = '.$post['id'].' ORDER BY `id` LIMIT 3;');
+		if($replies) foreach($replies as $reply){
+			echo '<div class="reply" id="p'.$reply['id'].'">';
+			echo buildPost($reply);
+			echo '</div>';
+		}
+		echo '</div>';
+	}*/

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>CSS Pagination!</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html{
+				background: #222;
+			}
+			body{
+				color: #BBB;
+			}
+			input[type="radio"]{
+				display: none;
+			}
+			label{
+				background: black;
+				border-bottom: 1px solid #BBB;
+				border-right: 1px solid #BBB;
+				display: table-cell;
+				height: calc(20vh - 1px);
+				text-align: center;
+				vertical-align: middle;
+				width: 99px;
+			}
+			label:last-of-type{
+				border-bottom: none;
+			}
+			label:focus, label:hover{
+				background: #222;
+				cursor: pointer;
+				text-decoration: underline;
+			}
+			input:checked + label{
+				color: white;
+				background: #333;
+			}
+			.content{
+				height: 100vh;
+				left: 100px;
+				opacity: 0;
+				padding: 2px 4px;
+				position: fixed;
+				top: 0;
+				transition: .5s;
+				width: calc(100vw - 100px);
+			}
+			input:checked + label + .content{
+				opacity: 1;
+				z-index: 1;
+			}
+			h2{
+				color: orange;
+			}
+			code{
+				color: lime;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<input id="test1" name="header" type="radio" checked /><label for="test1">TEST1</label><article class="content">
+			<h2>CSS Pagination</h2>
+			This pagination method works by exploiting the <code>input:checked</code> pseudo-selector. When you click on 
+			one of the "links" to the left you are actually clicking on an <code>&lt;input&gt;</code>'s accompanying 
+			<code>&lt;label&gt;</code>, which sets the <code>&lt;input&gt;</code> to <code>:checked</code>, thus applying a 
+			style to a sibling-element (using <code>input:checked + <i>sibling</i></code>). The result emulates a "page-change" 
+			without having to reload the page. Take a look at the code to discover more about how it works!<br />
+			<br />
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce magna enim, egestas venenatis egestas et, 
+			finibus vitae arcu. Maecenas hendrerit id magna sed euismod. Nam at porta ante, id ultrices dui. Etiam nulla 
+			ante, aliquet a ipsum vitae, dapibus congue nisi. Fusce consectetur tortor sed enim imperdiet consectetur. 
+			Nunc mollis varius semper. Vestibulum vel facilisis diam. Vivamus tempor tortor sed tellus ornare, at feugiat 
+			justo consequat. Pellentesque vitae quam sit amet lacus dapibus pellentesque id eget lacus. Nam metus leo, 
+			blandit ut dapibus a, dictum ac est. Fusce scelerisque enim et mi rutrum pharetra. Etiam risus tortor, laoreet 
+			sit amet lectus vel, rutrum placerat erat. Nunc at facilisis eros. Nulla enim odio, congue ac nisl non, 
+			tincidunt dictum lorem.<br />
+			<br />
+			Aliquam erat volutpat. Vivamus vel dui vitae ipsum ultricies viverra tincidunt vitae arcu. Curabitur vulputate 
+			sapien tellus, ac semper nunc fermentum quis. Etiam condimentum egestas odio, eu aliquam urna pretium at. 
+			Vestibulum dapibus, nisl vel lobortis finibus, purus nisl bibendum mauris, in ullamcorper ipsum urna at justo. 
+			Cras laoreet hendrerit lacus ac lobortis. Fusce odio ante, suscipit non maximus vitae, pulvinar in leo. 
+			Quisque sit amet velit ante. Mauris nec nunc lobortis, auctor lectus nec, vestibulum augue. Proin faucibus 
+			venenatis eros non rhoncus. 
+		</article>
+		<input id="test2" name="header" type="radio" /><label for="test2">TEST2</label><article class="content">
+			<h2>Another Page</h2>
+			Nulla et elit et magna consectetur imperdiet ut sed est. Integer efficitur faucibus sem, a euismod eros 
+			fermentum non. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce 
+			magna purus, maximus et elit sit amet, mollis interdum eros. Quisque et neque eu nibh dapibus efficitur. 
+			Suspendisse ornare purus a ante egestas, id lobortis elit auctor. Donec eu lobortis nulla, commodo eleifend 
+			dolor. Suspendisse fringilla aliquam mi quis auctor. Cras nec ipsum varius, scelerisque sem ut, condimentum 
+			purus. Aenean nec est eget ante cursus imperdiet sit amet vel mi. Vivamus molestie, massa sit amet aliquet 
+			posuere, diam nulla maximus massa, sed rutrum urna nisi id leo. Fusce ultricies felis quis velit dignissim, 
+			eget bibendum purus sagittis. Phasellus sed est egestas, condimentum metus id, hendrerit elit. Proin posuere 
+			mollis tellus. In dapibus at metus ut viverra.<br />
+			<br />
+			Nunc et nisl venenatis urna luctus ornare eget vel massa. Mauris pulvinar felis magna, at venenatis turpis 
+			gravida at. Vivamus egestas efficitur magna nec ultricies. Quisque vel erat sodales, maximus lectus vel, 
+			scelerisque lorem. Nullam at aliquet leo. Phasellus lobortis nulla eget dolor semper ornare. Quisque imperdiet 
+			urna nisi, at tristique quam ultricies in. Morbi quis fringilla nisl. Vivamus hendrerit ante sit amet enim 
+			varius egestas. Suspendisse lacus nulla, euismod quis quam sed, dapibus vulputate eros. Praesent dignissim 
+			ullamcorper ipsum, a lacinia lorem tincidunt eget. Proin pellentesque neque non ante commodo convallis.
+		</article>
+		<input id="test3" name="header" type="radio" /><label for="test3">TEST3</label><article class="content">
+			<h2>Yet Another Page</h2>
+			Pellentesque fringilla, enim a gravida pellentesque, nunc lectus imperdiet sem, vitae ultrices odio ante 
+			condimentum justo. Integer vestibulum ipsum eu mauris lacinia ultrices. Cum sociis natoque penatibus et magnis 
+			dis parturient montes, nascetur ridiculus mus. Sed quis ante aliquet, vestibulum lorem vel, sollicitudin ex. 
+			Sed sit amet neque nec justo dictum interdum. Etiam rhoncus, turpis sit amet ultrices imperdiet, diam eros 
+			rutrum purus, vehicula dapibus felis libero nec diam. Maecenas efficitur sit amet dolor semper euismod. 
+			Integer in ex eros. Donec nulla massa, sagittis id sodales et, sagittis in elit. Aenean ullamcorper sem tortor, 
+			at hendrerit nibh malesuada vitae.<br />
+			<br />
+			Suspendisse a vehicula metus, vitae efficitur turpis. Class aptent taciti sociosqu ad litora torquent per 
+			conubia nostra, per inceptos himenaeos. Duis varius vehicula nisl, id vehicula tortor tempor vel. Phasellus 
+			hendrerit sapien ex, vel ornare risus bibendum nec. Sed sagittis, felis quis fringilla lacinia, nisi orci 
+			venenatis elit, vel ultricies diam lacus sed tellus. Integer quis faucibus lacus. In blandit risus nisi, vel 
+			facilisis risus bibendum non. In ac magna vitae sapien mattis hendrerit nec vel ligula. In sit amet vulputate ex. 
+			Sed consequat felis eu augue hendrerit, ut cursus turpis molestie. Sed id nunc auctor, tempor velit sed, 
+			consectetur justo. Quisque rhoncus ligula enim, ut commodo diam fermentum et. Phasellus egestas ante vitae purus 
+			commodo dictum. 
+		</article>
+		<input id="test4" name="header" type="radio" /><label for="test4">TEST4</label><article class="content">
+			<h2>There's Even Another Page</h2>
+			Curabitur diam orci, varius aliquam malesuada vitae, egestas nec erat. Quisque convallis ac arcu in scelerisque. 
+			Nunc elementum elit ac sapien bibendum aliquet. Nullam ac quam condimentum, auctor nulla et, auctor neque. 
+			Pellentesque aliquet convallis arcu, sit amet egestas eros mollis quis. Vestibulum arcu diam, porta nec mauris ut, 
+			tempor viverra lorem. Nunc commodo eleifend ultricies. Duis tempor pulvinar aliquet.<br />
+			<br />
+			Aenean tincidunt lacinia blandit. Cras non orci nunc. Vivamus eget urna ipsum. Ut fringilla felis a nisl hendrerit 
+			malesuada. Curabitur ex diam, blandit eleifend eros non, rhoncus interdum urna. Pellentesque eget rhoncus libero, 
+			et lacinia sem. Proin cursus, nisi ac rutrum auctor, nisi lectus tempor tellus, eu suscipit tellus dui a turpis. 
+			Fusce dignissim diam eget nunc vulputate maximus. Nunc purus ligula, maximus vel vulputate quis, maximus mattis 
+			lectus.
+		</article>
+		<input id="test5" name="header" type="radio" href="#test" /><label for="test5">TEST5</label><article class="content">
+			<h2>Oh My Gosh So Pagey!</h2>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus malesuada, est sed laoreet mollis, elit quam 
+			fringilla erat, et dignissim metus eros et enim. Donec sed tortor nec eros dictum porttitor at a lacus. Integer 
+			ultrices aliquet diam, at rhoncus sapien mattis et. Fusce sit amet turpis tempus, vestibulum velit nec, elementum 
+			lectus. Quisque id felis non felis placerat congue at vitae leo. Nunc non diam mollis, sagittis metus sed, ullamcorper 
+			risus.<br />
+			<br />
+			Sed mollis, ipsum a molestie placerat, massa nibh facilisis purus, a molestie sapien sapien id nisi. Duis 
+			varius augue nec augue ultricies, sed ultricies eros dictum. Integer at massa sed ligula rutrum fermentum at sit 
+			amet orci. Morbi vestibulum vulputate eleifend. Nulla ligula sapien, consequat at accumsan in, feugiat a dui. 
+			Mauris sed facilisis ante. Vivamus consectetur egestas urna quis vehicula. Quisque vel ligula nec nunc accumsan 
+			dictum. Pellentesque rhoncus condimentum ligula sed ullamcorper. Nam lectus elit, finibus ac efficitur quis, 
+			sodales ac massa. Proin ipsum leo, efficitur in posuere auctor, vulputate consectetur lorem. Nam vel bibendum 
+			felis, nec dictum nisl. Nunc eu mauris eu ante pellentesque luctus. Sed non sapien vitae turpis consectetur 
+			tristique eget et turpis. Fusce at lacinia libero. Praesent tempor sem orci, sed congue dui fermentum non.
+		</article>
+	</body>
+</html>
