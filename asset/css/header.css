@@ -1,0 +1,302 @@
+/*---------------------------------------------------------------------------------------------------------------------\
+| Header                                                                                                               |
+\---------------------------------------------------------------------------------------------------------------------*/
+#header {
+    background: var(--background);
+    border-bottom: var(--border);
+    box-shadow: var(--box-shadow-dark);
+    height: 149px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+}
+#header > table , #navbar > table {
+    height: calc(100% - 4px);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 4px);
+}
+
+/* Header Cells */
+#header td, #navbar td {
+    height: 33.333%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Outer Button Wrapper */
+#header td > div, #navbar td > div, #header-logo, #header-inner {
+    background: rgba(0, 0, 0, .25);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-dark);
+    height: calc(100% - 8px);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 8px);
+}
+
+/* Inner Button Wrapper */
+#header td > div > div, #navbar td > div > div {
+    background: none;
+    border-radius: var(--border-radius);
+    box-shadow: none;
+    height: calc(100% - 8px);
+    left: 50%;
+    overflow: hidden;
+    position: absolute;
+    width: calc(100% - 8px);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 2s box-shadow;
+}
+
+/* Inner Button Animations */
+#header td > div > div:focus-within, #header td > div > div:hover,
+#navbar td > div > div:focus-within, #navbar td > div > div:hover {
+    background: rgba(255, 255, 255, .036);
+    box-shadow: var(--box-shadow-dark);
+    transition: .25s box-shadow, .5s color, 1s text-shadow;
+}
+/* Inner Button Animations - Internet Explorer fixes. */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    #header td > div > div:hover,
+    #navbar td > div > div:hover {
+        background: rgba(255, 255, 255, .036);
+        box-shadow: var(--box-shadow-dark);
+        transition: .25s box-shadow, .5s color, 1s text-shadow;
+    }
+}
+#header td > div > div:active, #navbar td > div > div:active {
+    background: rgba(127, 127, 127, .036) !important;
+}
+#header td > div > div.active, #navbar td > div > div.active {
+    background: rgba(255, 255, 255, .036);
+    box-shadow: var(--box-shadow-dark);
+}
+#header td > div > div.active:not(.parent) {
+    pointer-events: none;
+}
+#header td > div > div.active a, #navbar td > div > div.active a {
+    color: white;
+    text-shadow: 0 0 2px white, 0 0 4px blue, 0 0 8px purple;
+}
+
+/* Inner Button Links */
+#header td > div a:before, #navbar td > div a:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+#header td > div a, #navbar td > div a {
+    border: none;
+    color: var(--color);
+    display: inline-block;
+    font-size: 16px;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: var(--text-shadow-dark);
+    width: 100%;
+}
+
+/* Inner Button Link Animations */
+#header td > div a:focus, #header td > div a:hover,
+#navbar td > div a:focus, #navbar td > div a:hover {
+    animation: .0625s electrify;
+    text-shadow: 0 0 4px blue, 0 0 8px purple;
+    transition: 1s text-shadow;
+}
+#header td > div a:active, #navbar td > div a:active {
+    color: #DDAADD;
+}
+
+/* Inner Button Link Animation Colors */
+#header div a[href="/"]:focus, #navbar div a[href="/"]:focus,
+#header div a[href="/"]:hover, #navbar div a[href="/"]:hover,
+#header div.active a[href="/"], #navbar div.active a[href="/"] {
+    text-shadow: 0 0 4px red, 0 0 8px fuchsia !important;
+}
+#header div a[href="/code"]:focus, #navbar div a[href="/code"]:focus,
+#header div a[href="/code"]:hover, #navbar div a[href="/code"]:hover,
+#header div.active a[href="/code"], #navbar div.active a[href="/code"] {
+    text-shadow: 0 0 4px blue, 0 0 8px lime !important;
+}
+#header div a[href="/dox"]:focus, #navbar div a[href="/dox"]:focus,
+#header div a[href="/dox"]:hover, #navbar div a[href="/dox"]:hover,
+#header div.active a[href="/dox"], #navbar div.active a[href="/dox"] {
+    text-shadow: 0 0 4px lime, 0 0 8px red !important;
+}
+#header div a[href="/warez"]:focus, #navbar div a[href="/warez"]:focus,
+#header div a[href="/warez"]:hover, #navbar div a[href="/warez"]:hover,
+#header div.active a[href="/warez"], #navbar div.active a[href="/warez"] {
+    text-shadow: 0 0 4px teal, 0 0 8px aqua !important;
+}
+#header div a[href="/toolz"]:focus, #navbar div a[href="/toolz"]:focus,
+#header div a[href="/toolz"]:hover, #navbar div a[href="/toolz"]:hover,
+#header div.active a[href="/toolz"], #navbar div.active a[href="/toolz"] {
+    text-shadow: 0 0 4px red, 0 0 8px orange !important;
+}
+#header div a[href="/forum"]:focus, #navbar div a[href="/forum"]:focus,
+#header div a[href="/forum"]:hover, #navbar div a[href="/forum"]:hover,
+#header div.active a[href="/forum"], #navbar div.active a[href="/forum"] {
+    text-shadow: 0 0 4px red, 0 0 8px lime !important;
+}
+#header div a[href="/email"]:focus, #navbar div a[href="/email"]:focus,
+#header div a[href="/email"]:hover, #navbar div a[href="/email"]:hover,
+#header div.active a[href="/email"], #navbar div.active a[href="/email"] {
+    text-shadow: 0 0 4px lime, 0 0 8px darkgreen !important;
+}
+
+/* Logo */
+#header-logo {
+    background-image: url("/asset/image/logo.jpg");
+    background-size: 100% 100%;
+    transition: .5s box-shadow;
+    opacity: .85;
+}
+#header-logo:focus, #header-logo:hover {
+    box-shadow: 0 0 2px white, 0 0 4px blue, 0 0 8px purple;
+    transition: 0s box-shadow;
+}
+
+/**----------------------------------------------------------------------------\
+| Inner Header                                                                 |
+\-----------------------------------------------------------------------------*/
+#header-inner {
+    line-height: 0;
+    margin-top: -8px;
+    position: relative;
+}
+
+/* Inner Header Cells */
+#header-inner td {
+    height: 20%;
+    text-align: center;
+}
+#header-inner tr:not(:last-of-type) td:not(#header-subtitle) {
+    border-bottom: .125vw solid rgba(255, 255, 255, .04687);
+}
+#header-inner td:not(:last-of-type) {
+    border-right: .125vw solid rgba(255, 255, 255, .04687);
+}
+#header-inner td:first-of-type, #header-inner td:last-of-type {
+    font-size: 13px;
+}
+
+/* Inner Header Title */
+#header-title {
+    font-family: "Montserrat", sans-serif, var(--font-family);
+    font-size: 32px;
+    font-weight: 900;
+}
+
+#header-subtitle > span {
+    font-size: var(--font-size-larger);
+    text-shadow: var(--text-shadow);
+    vertical-align: bottom;
+}
+
+/* Inner Header Text-only cells. */
+#header-username, #header-forum, #header-imageboard, #header-encrypted, #header-websocket {
+    padding-left: 4px;
+    text-align: left !important;
+}
+
+/* Inner Header Subtitle Loading Notification */
+#loading-notify {
+    color: #666;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* Fixes for IE. */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    #loading-notify {
+        top: 19px;
+    }
+}
+
+/* Inner Header Links */
+#header-inner td > a {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+#header-inner td > a:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  text-decoration: none;
+  vertical-align: middle;
+}
+#header-inner td > a:focus,
+#header-inner td > a:hover {
+    animation: .03125s electrify;
+}
+
+/* Inner Header Username Link */
+#header-username a {
+    color: skyblue;
+    width: auto;
+}
+#header-username a:focus, #header-username a:hover, #header-username a.active {
+    color: lightblue;
+}
+
+/* Inner Header Chat Link */
+label[for="chat"] {
+    cursor: pointer;
+    cursor: var(--cursor-pointer) !important;
+    transition: .25s text-shadow;
+}
+label[for="chat"]:focus, label[for="chat"]:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 2px;
+    transition: 0s text-shadow;
+}
+
+/* Inner Header Katamari */
+#katamari {
+    background-image:   url("/asset/image/katamari/beautiful-katamari/harvest.gif"),
+                        url("/asset/image/katamari/katamari-damacy/prince.gif"),
+                        url("/asset/image/katamari/me-&-my-katamari/mu.gif"),
+                        url("/asset/image/katamari/katamari-damacy/dipp.gif"),
+                        url("/asset/image/katamari/we-love-katamari/kinoko.gif");
+    background-position: 0%, 25%, 50%, 75%, 100%;
+    background-repeat: no-repeat;
+    background-size: 20px 100%;
+
+}
+
+/* Inner Header Logout Link */
+#header #logout input[type="submit"] {
+    background: none;
+    box-shadow: none;
+    color: darkorange;
+    height: 100%;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    text-shadow: var(--text-shadow-dark);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .5s color, .25s text-shadow;
+    width: unset;
+}
+
+/* Inner Header Logout Link Animations */
+#header #logout input[type="submit"]:hover {
+    color: orange/*#FBB917*/;
+    text-shadow: 0 0 1px;
+    text-decoration: underline;
+    transition: 0s color, 0s text-shadow;
+}
+#header #logout input[type="submit"]:active {
+    color: lime;
+}

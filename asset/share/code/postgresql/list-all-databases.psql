@@ -1,0 +1,8 @@
+/* List all databases. */
+SELECT table_name FROM information_schema.tables 
+WHERE table_schema NOT IN('information_schema', 'pg_catalog');
+
+/* List all databases; use a schema. */
+SELECT table_name FROM information_schema.tables 
+WHERE table_schema NOT IN('information_schema', 'pg_catalog') 
+AND table_schema IN('public', 'myschema');

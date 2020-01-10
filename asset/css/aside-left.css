@@ -1,0 +1,32 @@
+/*-----------------------------------------------------------------------------\
+| Left Aside                                                                   |
+\-----------------------------------------------------------------------------*/
+#aside-left, #aside-left-2 {
+    clear: left;
+    float: left;
+    margin-right: 8px;
+    position: relative;
+}
+
+#aside-left > div {
+    max-height: calc(100% - 25px);
+    overflow-y: auto;
+}
+
+#aside-left ul {
+    padding-bottom: 0;
+}
+#aside-left ul + ul {
+    padding-top: 0;
+}
+
+#aside-left-2 fieldset {
+    margin: 8px 8px 0;
+    width: calc(100% - 18px);
+}
+
+main > aside > form,
+main > aside > ul {
+    float: left;
+    width: 100%;
+}

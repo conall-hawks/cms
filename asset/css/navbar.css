@@ -1,0 +1,18 @@
+#navbar {
+    background: rgba(34, 34, 34, 0.8);
+    border-bottom: var(--border);
+    height: 52.333px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+ #navbar td > div {
+    margin-top: .5px;
+    padding-top: .5px;
+}
+
+#navbar h1 {
+    text-align: center;
+    margin: 0;
+}

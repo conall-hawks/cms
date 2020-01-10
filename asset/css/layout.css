@@ -1,0 +1,741 @@
+/*---------------------------------------------------------------------------------------------------------------------\
+| Globally-scoped default CSS.                                                                                         |
+|                                                                                                                      |
+| var()s are defined in /asset/share/code/css/variables.css                                                            |
+\---------------------------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------\
+| Everything                                                                   |
+\-----------------------------------------------------------------------------*/
+* {
+    cursor: var(--cursor);
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+/*-----------------------------------------------------------------------------\
+| Document Root                                                                |
+\-----------------------------------------------------------------------------*/
+html {
+    background-attachment: fixed;
+    background-color: #111;
+    background-image: url("/asset/image/background.svg");
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 4px auto;
+    color: var(--color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    line-height: unset;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-bottom: 20px;
+    scrollbar-color: var(--color-darker) var(--background-darkest);
+    text-rendering: geometricPrecision;
+    text-shadow: var(--text-shadow-dark);
+}
+
+/*-----------------------------------------------------------------------------\
+| Textual Elements                                                             |
+\-----------------------------------------------------------------------------*/
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", sans-serif, var(--font-family);
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: inherit;
+}
+h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus,
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+    color: inherit;
+}
+
+/* Horizontal page breaks. */
+hr {
+    border: var(--border);
+    height: 1px;
+    margin: 4px 4px 0;
+    width: calc(100% - 10px);
+}
+
+/* Labels */
+label[for] {
+    user-select: none;
+}
+td > label {
+    width: calc(100% - 8px);
+}
+label:active {
+    color: var(--color-light);
+}
+
+/* Code */
+code, pre {
+    background-color: black;
+    display: block;
+    font-family: var(--font-family);
+    font-size: 13px;
+    line-height: unset;
+    overflow: auto;
+    padding-left: 4px !important;
+    padding-top: 4px !important;
+    user-select: text;
+    white-space: pre;
+}
+code * {
+    user-select: text;
+}
+
+/* Preformatted Text */
+pre {
+    padding: 4px;
+}
+
+/* Subscript/Superscript. */
+sub, sup {
+    line-height: 0;
+}
+
+/* Text Highlighting */
+::selection {
+    background: rgba(255, 255, 255, .125);
+    height: 16px;
+}
+
+::-moz-selection {
+    background: rgba(255, 255, 255, .125);
+    height: 16px;
+}
+
+/* Rainbow text! */
+.rainbow {
+    -webkit-background-clip: text;
+            background-clip: text;
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2), color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
+    background-image:         gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2), color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
+    color: transparent;
+    text-shadow: none;
+}
+
+/*-----------------------------------------------------------------------------\
+| Paragraphs                                                                   |
+\-----------------------------------------------------------------------------*/
+p {
+    line-height: 16px;
+    padding: 2px 4px;
+    user-select: text;
+    white-space: normal;
+    width: calc(100% - 8px);
+}
+
+/* Collapse if a header has no accompanying content. */
+article > h1 + p:empty {
+    margin: -1px 0 0 0;
+    padding: 0 4px;
+}
+
+/*-----------------------------------------------------------------------------\
+| Images                                                                       |
+\-----------------------------------------------------------------------------*/
+img, .img {
+    max-width: 100%;
+    opacity: .9;
+}
+
+/* CAPTCHAs. */
+.captcha {
+    display: block;
+    /*height: 80px;*/
+    height: 68px;
+    margin: 0 auto;
+    max-width: 100%;
+    /*width: 160px;*/
+    width: 136px;
+}
+
+/*-----------------------------------------------------------------------------\
+| Lists                                                                        |
+\-----------------------------------------------------------------------------*/
+ul, ol {
+    list-style-position: inside;
+    padding: 2px 6px;
+}
+
+/* Field groups; Chrome adds margin to list items' items. */
+@supports(-webkit-app-region: initial) {
+    ul:not(.collapsible) > li > *,
+    ol:not(.collapsible) > li > * {
+    margin-left: -8px;
+}}
+
+/* Inputs inside lists. */
+li input, li select {
+    height: 18px;
+    margin-top: 1px;
+}
+
+/*-----------------------------------------------------------------------------\
+| Tables                                                                       |
+\-----------------------------------------------------------------------------*/
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+
+tbody > tr > td {
+    position: relative;
+}
+
+/*-----------------------------------------------------------------------------\
+| Links                                                                        |
+\-----------------------------------------------------------------------------*/
+a {
+    color: var(--color-link);
+    cursor: pointer;
+    cursor: var(--cursor-pointer);
+    text-decoration: none;
+}
+
+a:focus, a:hover, a.active {
+    color: gold;
+}
+
+a:focus, a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: lime;
+}
+
+/* Currently active link. */
+a.active:not(.parent) {
+    pointer-events: none;
+}
+
+/*-----------------------------------------------------------------------------\
+| Forms                                                                        |
+\-----------------------------------------------------------------------------*/
+form label {
+    float: left;
+    font-family: var(--font-family);
+    margin: 8px 0 0 8px;
+}
+article > form,
+article > table {
+    /*float: left;*/
+    margin-bottom: 8px;
+    width: 100%;
+}
+article > table,
+article > form > table {
+    width: calc(100% - 8px);
+}
+
+/* Field Groups */
+fieldset {
+    background: var(--background-light);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    float: left;
+    margin: 8px 0 0 8px;
+    /*overflow: hidden;*/
+    padding: 0 0 8px 0;
+    position: relative;
+    width: calc(100% - 18px);
+}
+
+td > fieldset {
+    width: calc(100% - 10px);
+}
+
+fieldset > legend {
+    color: lime;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1px;
+    margin-left: 8px;
+    position: relative;
+    text-shadow: var(--text-shadow-darker);
+    top: -1px;
+}
+
+fieldset > ul {
+    padding: 4px 0 0 8px;
+}
+fieldset > ul > li {
+    line-height: 16px;
+    padding-left: 11px;
+    text-indent: -11px;
+}
+
+fieldset td > p,
+fieldset td > span {
+    display: inline-block;
+    line-height: 14px;
+    margin: 2px 0 0 8px;
+    padding: 0;
+    /*position: absolute;
+    top: 0;*/
+}
+
+/*-----------------------------------------------------------------------------\
+| Inputs                                                                       |
+\-----------------------------------------------------------------------------*/
+input, select, textarea, .input-text, .button-wrap, .button {
+    background: var(--background-darker);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-dark), 0 0 8px rgba(0, 0, 0, .125) inset;
+    color: var(--color);
+    float: left;
+    font-family: var(--font-family);
+    height: 24px;
+    margin-left: 8px;
+    margin-top: 8px;
+    outline-width: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: calc(100% - 16px);
+}
+
+/* Placeholder text. */
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-dark);
+    text-shadow: var(--text-shadow) black;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: var(--color-dark);
+    text-shadow: var(--text-shadow) black;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: var(--color-darkest);
+    text-shadow: var(--text-shadow) black;
+}
+
+/* Placeholder text while mousedown/keydown. */
+input:active,
+input:active::placeholder,
+textarea:active,
+textarea:active::placeholder {
+    text-shadow: 0 0 1px;
+}
+input:active,
+input:active:-ms-input-placeholder,
+textarea:active,
+textarea:active:-ms-input-placeholder {
+    text-shadow: 0 0 1px;
+}
+
+/* Textual inputs. */
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="range"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+textarea {
+    cursor: var(--cursor-text);
+    padding: 0 4px 0;
+    user-select: text;
+    width: calc(100% - 24px);
+}
+input[type="search"] {
+    width: calc(100% - 16px);
+}
+
+/* Dropdowns. */
+select {
+    cursor: var(--cursor);
+}
+
+/* Button inputs. */
+input[type="button"],
+input[type="checkbox"],
+input[type="color"],
+input[type="image"],
+input[type="radio"],
+input[type="reset"],
+input[type="submit"],
+.button {
+    background: none;
+    box-shadow: none;
+    cursor: var(--cursor-pointer);
+    display: block;
+    font-family: var(--font-family);
+    transition: 2s box-shadow;
+}
+input[type="button"]:focus,   input[type="button"]:hover,
+input[type="checkbox"]:focus, input[type="checkbox"]:hover,
+input[type="color"]:focus,    input[type="color"]:hover,
+input[type="image"]:focus,    input[type="image"]:hover,
+input[type="radio"]:focus,    input[type="radio"]:hover,
+input[type="reset"]:focus,    input[type="reset"]:hover,
+input[type="submit"]:focus,   input[type="submit"]:hover,
+.button:focus, .button:hover {
+    background: rgba(255, 255, 255, .036);
+    box-shadow: var(--box-shadow-dark);
+    color: var(--color-lighter);
+    text-shadow: 0 0 4px blue, 0 0 8px purple;
+    transition: .25s box-shadow, .5s color, 1s text-shadow;
+}
+
+/* File inputs - Internet Explorer fixes. */
+input[type="file"]::-ms-browse {
+    background: linear-gradient(rgb(239, 239, 239), rgb(210, 210, 210));
+    border: 1px solid rgb(112, 112, 112);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 1px 1px white inset;
+    padding: 0;
+    margin: -1px 1px -1px -1px;
+    font-family: sans-serif;
+    height: 20px;
+    text-shadow: none;
+    width: 72px;
+}
+input[type="file"]::-ms-browse:hover {
+    background: linear-gradient(rgb(228, 244, 252), rgb(175, 222, 248));
+    border: 1px solid rgb(60, 127, 177);
+}
+input[type="file"]::-ms-value {
+    background: none;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-dark), 0 0 8px rgba(0, 0, 0, .125) inset;
+    color: var(--color);
+    padding: 0 4px;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    input[type="file"] {
+        letter-spacing: -.5px;
+    }
+    input[type="file"]:invalid {
+        text-shadow: none !important;
+    }
+}
+
+/* File inputs - Chrome fixes. */
+input[type=file]::-webkit-file-upload-button {
+    background: linear-gradient(rgb(239, 239, 239), rgb(210, 210, 210));
+    border: 1px solid rgb(112, 112, 112);
+    border-radius: var(--border-radius-wide);
+    box-shadow: 0 0 1px 1px white inset;
+    font-size: 14px;
+    padding: 0;
+    margin: 1px 0 0 1px;
+    font-family: sans-serif;
+    height: 22px;
+    line-height: 24px;
+    text-shadow: none;
+    width: 72px;
+}
+input[type=file]::-webkit-file-upload-button:hover {
+    background: linear-gradient(rgb(228, 244, 252), rgb(175, 222, 248));
+    border: 1px solid rgb(60, 127, 177);
+}
+
+/* Active inputs. */
+input.active {
+    pointer-events: none;
+}
+
+/* Inputs in tables. */
+fieldset tr:not(:last-of-type) > td > input,
+fieldset tr:not(:last-of-type) > td > .button-wrap {
+    margin-bottom: 2px;
+}
+
+fieldset tr > td:not(:last-of-type) > input,
+fieldset tr > td:not(:last-of-type) > .button-wrap {
+    width: calc(100% - 16px);
+}
+
+fieldset tr > td + td > input,
+fieldset tr > td + td > .button-wrap {
+    margin-left: 2px;
+    width: calc(100% - 10px);
+}
+
+/* Textual inputs in last row of table cells in a fieldset. */
+fieldset tr > td:not(:only-child):last-of-type > input[type="email"],
+fieldset tr > td:not(:only-child):last-of-type > input[type="password"],
+fieldset tr > td:not(:only-child):last-of-type > input[type="search"],
+fieldset tr > td:not(:only-child):last-of-type > input[type="text"],
+fieldset tr > td:not(:only-child):last-of-type > select,
+fieldset tr > td:not(:only-child):last-of-type > textarea {
+    width: calc(100% - 18px);
+}
+
+tr > td:not(:last-of-type) > input,
+tr > td:not(:last-of-type) > .button-wrap {
+    width: calc(100% - 10px);
+}
+
+/* Textual inputs in last row of table cells. */
+tr > td:last-of-type > input[type="email"],
+tr > td:last-of-type > input[type="password"],
+tr > td:last-of-type > input[type="search"],
+tr > td:last-of-type > input[type="text"],
+tr > td:last-of-type > select,
+tr > td:last-of-type > textarea {
+    width: calc(100% - 16px);
+}
+
+tr > td + td > input,
+tr > td + td > .button-wrap {
+    width: calc(100% - 8px);
+}
+
+/* Placeholder. */
+.input-placeholder {
+    height: 34px;
+}
+
+/* Button wrapper. */
+.button-wrap {
+    position: relative;
+    width: calc(100% - 16px);
+}
+
+/* Wrapped button. */
+.button-wrap > input[type="button"],
+.button-wrap > input[type="color"],
+.button-wrap > input[type="radio"],
+.button-wrap > input[type="reset"],
+.button-wrap > input[type="submit"],
+.button-wrap > .button {
+    background: none;
+    border-radius: var(--border-radius);
+    box-shadow: none;
+    font-size: 12px;
+    height: calc(100% - 8px);
+    left: 50%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 2s box-shadow;
+    width: calc(100% - 8px);
+}
+.button-wrap > input[type="button"]:focus , .button-wrap > input[type="button"]:hover,
+.button-wrap > input[type="color"]:focus  , .button-wrap > input[type="color"]:hover,
+.button-wrap > input[type="radio"]:focus  , .button-wrap > input[type="radio"]:hover,
+.button-wrap > input[type="reset"]:focus  , .button-wrap > input[type="reset"]:hover,
+.button-wrap > input[type="submit"]:focus , .button-wrap > input[type="submit"]:hover,
+.button-wrap > .button:focus              , .button-wrap > .button:hover,
+.button-wrap > .active {
+    background: rgba(255, 255, 255, .036) !important;
+    box-shadow: var(--box-shadow-dark) !important;
+    transition: .25s box-shadow !important;
+}
+.button-wrap > input[type="button"]:active , .button-wrap > input[type="button"]:active,
+.button-wrap > input[type="color"]:active  , .button-wrap > input[type="color"]:active,
+.button-wrap > input[type="radio"]:active  , .button-wrap > input[type="radio"]:active,
+.button-wrap > input[type="reset"]:active  , .button-wrap > input[type="reset"]:active,
+.button-wrap > input[type="submit"]:active , .button-wrap > input[type="submit"]:active,
+.button-wrap > .button:active              , .button-wrap > .button:active {
+    background: rgba(128, 128, 128, .036) !important;
+    text-shadow: var(--text-shadow-darker);
+    transition: 0s box-shadow !important;
+}
+
+/* Wrapped textual input. */
+.button-wrap > input[type="email"],
+.button-wrap > input[type="password"],
+.button-wrap > input[type="search"],
+.button-wrap > input[type="text"],
+.button-wrap > select,
+.button-wrap > textarea {
+    background: none;
+    box-shadow: none;
+    margin: 0;
+    width: calc(100% - 8px);
+}
+
+/* Radio button hides itself to reveal enabled input underneath. */
+.radio-toggle:checked, .radio-toggle + input {
+    display: none;
+}
+.radio-toggle:checked + input {
+    display: block;
+}
+
+/* Color inputs. */
+input[type="color"] {
+    border: var(--border);
+}
+
+/* Normalize; remove built-in border added by browsers. */
+input[type="color"]::-moz-color-swatch {
+    border: none;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+/* Submit inputs. */
+input[type="submit"][value="X"] {
+    font-size: 10px;
+}
+
+/* Disabled inputs. */
+input[disabled],
+.button-wrap.disabled,
+.input-text > input[disabled] + .input-text-background {
+    background-color: rgba(255, 0, 0, .0625);
+    background-image: linear-gradient(to bottom right, rgba(128, 0, 0, .0625), rgba(32, 0, 0, .0625));
+    cursor: var(--cursor);
+    text-shadow: var(--text-shadow);
+}
+
+/* Invalid inputs. */
+input[placeholder]:not(:placeholder-shown):invalid,
+.input-text > input[placeholder]:not(:placeholder-shown):invalid + .input-text-background {
+    background-color: rgba(128, 0, 0, .0625);
+    background-image: linear-gradient(to bottom right, rgba(128, 0, 0, .0625), rgba(32, 0, 0, .0625));
+    text-shadow: 0 0 2px red;
+}
+input:invalid,
+input[type="file"]:invalid,
+.input-text > input:invalid + .input-text-background {
+
+    background-color: rgba(32, 0, 128, .0625);
+    background-image: linear-gradient(to bottom right, rgba(32, 0, 128, .0625), rgba(8, 0, 32, .0625));
+    text-shadow: 0 0 2px red;
+}
+
+/* Text embedded "inside" input box. */
+.input-text {
+    line-height: 24px;
+    padding-left: 4px;
+    width: calc(100% - 20px);
+}
+.input-text > input {
+    background: none;
+    box-shadow: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    position: absolute;
+    transform: translateY(-8px);
+
+    /* Attempt to fill available space; browser support is preliminary. */
+    width: calc(70% - 16px);
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+}
+
+.input-text > input + .input-text-background {
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+}
+
+/*-----------------------------------------------------------------------------\
+| Frames                                                                       |
+\-----------------------------------------------------------------------------*/
+iframe {
+    border: none;
+    float: left;
+    width: 100%;
+}
+/*-----------------------------------------------------------------------------\
+| Miscellaneous                                                                |
+\-----------------------------------------------------------------------------*/
+
+/* Text Colors */
+.gray   { color: gray;       }
+.green  { color: lime;       }
+.orange { color: darkorange; }
+.red    { color: red;        }
+
+/* Bold text. */
+.bold { font-weight: bold; }
+
+/* Numero sign. */
+.numero {
+    font-family: "Georgia", serif;
+    text-decoration: none !important;
+}
+
+/* Disabled elements. */
+.disabled {
+    color: #888;
+    pointer-events: none;
+}
+
+/* Animations */
+@keyframes electrify {
+    0%      { transform: rotate(1deg)  skew(180deg);  }
+    16.67%  { transform: rotate(-1deg) skew(-180deg); }
+    33.34%  { transform: rotate(1deg)  skew(180deg);  }
+    50.01%  { transform: rotate(-1deg) skew(-180deg); }
+    66.67%  { transform: rotate(1deg)  skew(180deg);  }
+    83.33%  { transform: rotate(-1deg) skew(-180deg); }
+}
+
+/* Fade-in animation. */
+@keyframes fade-in {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Hidden assets. */
+#style, #script {
+    display: none;
+}
+
+/* Fixes a bug in Google AdSense. */
+html > span {
+    display: none !important;
+}
+
+/*-----------------------------------------------------------------------------\
+| Screen Size: Ultra High Definition                                           |
+\-----------------------------------------------------------------------------*/
+@media(max-width: 3840px){
+
+}
+
+/*-----------------------------------------------------------------------------\
+| Screen Size: High Definition                                                 |
+\-----------------------------------------------------------------------------*/
+@media(max-width: 1920px){
+
+}
+
+/*-----------------------------------------------------------------------------\
+| Screen Size: Tablets                                                         |
+\-----------------------------------------------------------------------------*/
+@media(max-width: 960px){
+
+}
+
+/*-----------------------------------------------------------------------------\
+| Screen Size: Handheld Devices                                                |
+\-----------------------------------------------------------------------------*/
+@media(max-width: 480px){
+
+}

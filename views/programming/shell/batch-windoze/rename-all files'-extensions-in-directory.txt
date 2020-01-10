@@ -1,8 +1,0 @@
-Rename all extensions matching .XXX to .YYY:
-ren *.XXX *.YYY
-
-Rename all extensions to .YYY
-ren *.* *.YYY
-
-Recursively rename all extensions matching .txt to .renamed:
-for /R %x in (*.txt) do ren "%x" *.renamed 

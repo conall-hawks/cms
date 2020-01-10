@@ -1,0 +1,8 @@
+/*-----------------------------------------------------------------------------\
+| Add a <label> type element to lists in CSS3.                                 |
+\-----------------------------------------------------------------------------*/
+ul[label]::before {
+    content: attr(label);
+    font-size: var(--font-size-large);
+    font-weight: bold;
+}

@@ -1,0 +1,57 @@
+/*-----------------------------------------------------------------------------\
+| An example of variables in CSS. Useful for changing entire site themes.      |
++------------------------------------------------------------------------------+
+| Example:                                                                     |
+|     --color: #BBB;                                                           |
+|                                                                              |
+| Usage:                                                                       |
+|     color: var(--color);                                                     |
+\-----------------------------------------------------------------------------*/
+
+/* Globally-scoped variables. */
+html, body, :root {
+    --background-darkest: rgba(  0,   0,   0, .33);
+    --background-darker:  rgba(  0,   0,   0, .25);
+    --background-dark:    rgba( 32,  32,  32, .25);
+    --background:         rgba(255, 255, 255, .0625);
+    --background-light:   rgba(255, 255, 255, .03125);
+    --background-lighter: rgba(255, 255, 255, .015625);
+
+    --border-dark:        1px solid black;
+    --border:             1px solid var(--border-color);
+    --border-light:       1px solid rgba(255, 255, 255, .125);
+
+    --border-color:       rgba(255, 255, 255, .0625);
+
+    --border-radius:      2px;
+    --border-radius-wide: 3px;
+
+    --box-shadow-dark:    0 0 2.5px black; /* .5px shows up better on Chrome. */
+    --box-shadow:         0 0 2px rgba(  0,   0,   0, .5);
+    --box-shadow-light:   0 0 2px rgba(255, 255, 255, .125);
+
+    --color-darkest:      #555;
+    --color-darker:       #777;
+    --color-dark:         #999;
+    --color:              #BBB;
+    --color-light:        #CCC;
+    --color-lighter:      #EEE;
+    --color-link:         darkorange;
+
+    --cursor:             url("/asset/cursor/default.cur"), default;
+    --cursor-pointer:     url("/asset/cursor/pointer.cur"), pointer;
+    --cursor-text:        url("/asset/cursor/text.cur")   , text;
+
+    --font-family:        "Anonymous Pro", monospace;
+    --font-size-largest:  16px;
+    --font-size-larger:   15px;
+    --font-size-large:    14px;
+    --font-size:          13px;
+    --font-size-small:    12px;
+    --font-size-smaller:  11px;
+    --font-size-smallest: 11px;
+
+    --text-shadow:        0 0 1px;
+    --text-shadow-dark:   0 0 1px black;
+    --text-shadow-darker: 0 0 1px black, 0 0 2px black;
+}

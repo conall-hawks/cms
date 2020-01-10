@@ -1,0 +1,155 @@
+#explorer {
+    text-shadow: var(--text-shadow-dark);
+}
+
+/* Header. */
+#explorer > h1 > a.back + a {
+    padding-left: 4px;
+}
+#explorer > h1 > a.back:hover {
+    filter: brightness(150%);
+}
+#explorer > h1 > a.back + a + a {
+    color: var(--color-link);
+    font-size: 8px;
+    position: absolute;
+    right: 6px;
+}
+
+/* Static table header area. */
+.scroll-head {
+    background: var(--background-light);
+    border-bottom: var(--border-light);
+    height: 24px;
+}
+
+/* Scrolling table wrapper. */
+.scroll-wrap {
+    /*height: calc(100vh - 212px);*/
+    /*max-height: 80vh;*/
+    max-height: 575px;
+    /*min-height: 35px;*/
+    overflow-y: auto;
+}
+
+/* Table header. */
+.scroll-wrap thead tr {
+    height: 100% !important;
+}
+
+.scroll-wrap thead tr div {
+    border-left: var(--border);
+    height: 24px;
+    line-height: 24px;
+    padding: 0 4px;
+    position: absolute;
+    top: 0;
+    transform: translateX(-5px);
+}
+
+/* Back button. */
+.scroll-wrap thead td:first-of-type div {
+    padding-right: 0;
+    width: 32px;
+}
+.scroll-wrap thead td:first-of-type div:not(:empty):hover {
+    box-shadow: 0 0 8px rgba(255, 255, 255, .125) inset;
+    filter: brightness(150%);
+    transition: box-shadow 0s;
+}
+
+a.back {
+    color: var(--color);
+    float: left;
+    font-family: var(--font-family);
+    font-size: 28px;
+    margin: -4px 4px 0;
+    text-align: center;
+    text-decoration: none !important;
+    width: 20px;
+}
+
+/* Rows */
+#explorer tr {
+    border-bottom: var(--border);
+    height: 36px;
+    transition: background .25s ease-out;
+}
+#explorer tr:last-of-type {
+    border-bottom: none;
+    height: 35px;
+}
+#explorer tbody tr:hover {
+    background: var(--background-light);
+    color: var(--color-lighter);
+    filter: brightness(150%);
+    opacity: unset !important;
+    transition: background 0s;
+}
+
+/* Cells */
+#explorer td {
+    overflow: hidden;
+    padding-left: 4px;
+    padding-right: 4px;
+    transition: box-shadow .25s ease-out;
+}
+
+#explorer td:first-of-type {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    width: 28px;
+}
+
+#explorer td:not(:last-of-type) {
+    border-right: var(--border);
+}
+
+#explorer td:hover {
+    box-shadow: 0 0 8px rgba(255, 255, 255, .125) inset;
+    text-shadow: 0 0 1px;
+    transition: box-shadow 0s;
+}
+
+/* Links in cells. */
+#explorer td > a {
+    float: left;
+    line-height: 32px;
+    max-height: 32px;
+    width: calc(100% + 4px);
+    margin-left: -4px;
+    padding-left: 4px;
+}
+
+/**----------------------------------------------------------------------------\
+| Icons                                                                        |
+\---------------------------------------------------------------------------- */
+#explorer > a img {
+    width: 64px;
+    height: 64px;
+}
+
+#explorer thead td:first-of-type a {
+    height: 24px;
+    left: -4px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -4px;
+    width: 36px;
+}
+
+#explorer tbody td:first-of-type {
+    position: relative;
+}
+#explorer tbody td:first-of-type a {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+#explorer tbody tr:hover td:first-of-type {
+    filter: brightness(200%);
+}

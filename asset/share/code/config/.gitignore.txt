@@ -1,0 +1,23 @@
+################################################################################
+# .gitignore example.                                                          #
+#                                                                              #
+# Go here for awesome templates: https://github.com/github/gitignore           #
+################################################################################
+
+# Ignore all .tmp files.
+*.[Tt][Mm][Pp]
+
+# Don't ignore test.tmp, even though you're already ignoring all .tmp files.
+!test.tmp
+
+# Ignore the private.txt file in this directory, but not subdir/private.txt.
+/private.txt
+
+# Ignore all files in any directory named build.
+build/
+
+# Ignore all .pdf files in the doc/ directory
+doc/*.pdf
+
+# Ignore all .pdf files in the doc/ directory (recursively).
+doc/**/*.pdf

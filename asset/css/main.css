@@ -1,0 +1,77 @@
+/*-----------------------------------------------------------------------------\
+| Content Box                                                                  |
+\-----------------------------------------------------------------------------*/
+
+/* Content Area */
+#main {
+    float: left;
+    margin: 8px 0 20px;
+    width: 100%;
+}
+
+#content {
+    margin-top: -8px;
+    /*
+    position: relative;
+    top: -8px;
+    z-index: -1;
+    */
+}
+
+/* Content Boxes */
+#content > article {
+    background: var(--background-dark);
+    border: var(--border-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow), 0 0 4px rgba(0, 0, 0, .5);
+    left: 0;
+    line-height: 16px;
+    margin: 8px 8px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Content Box Headers */
+#main > aside > h1:first-of-type,
+#content > article > h1:first-of-type {
+    background: var(--background-light);
+    border-bottom: var(--border-light);
+    font-family: "Montserrat", sans-serif, var(--font-family);
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 24px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Content Box Paragraph */
+#content > article > p,
+#content > article > pre {
+    user-select: text;
+}
+
+/* Content Box Code */
+#content > article > code {
+    overflow-x: auto;
+    padding: 1px 4px;
+}
+
+/* Content Box Image */
+#content > article > img,
+#content > article > .img,
+#content > article > video {
+    background-color: black;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 4px black;
+    float: right;
+    height: 12.375vw;
+    margin: 4px;
+    width: 22vw;
+}
+
+#content > article > .img {
+    background-size: 100% 100%;
+}

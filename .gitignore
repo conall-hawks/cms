@@ -1,4 +1,31 @@
-config/constants.php.production
-controllers/instagram.php
-images/imageboard/
-includes/pop3-server.php
+################################################################################
+# Personal Settings                                                            #
+################################################################################
+private.php
+
+################################################################################
+# Large Assets                                                                 #
+################################################################################
+asset/image/pix
+asset/image/user
+asset/upload
+
+################################################################################
+# OS Artifacts                                                                 #
+################################################################################
+.DS_Store
+desktop.ini
+thumbs.db
+
+################################################################################
+# Proprietary                                                                  #
+################################################################################
+asset/css/layout/grbs.css
+asset/css/main/grbs.css
+asset/image/grbs
+asset/misc/grbs.json
+asset/misc/grbs.json.backup
+controller/grbs.php
+model/grbs.php
+template/layout/grbs.php
+template/main/grbs.php

@@ -1,0 +1,141 @@
+.imageboard-preface > h1,
+.imageboard-preface > p {
+    text-align: center;
+}
+
+.thumb {
+    background-color: rgba(0, 0, 0, .125);
+    background-image: url("/asset/image/loading.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 2px;
+    border: var(--border);
+    float: left;
+    height: 11.25vw;
+    margin: 4px;
+    min-height: 67px;
+    min-width: 120px;
+    opacity: .8;
+    width: 20vw;
+}
+
+marquee {
+    height: 12px;
+}
+
+marquee img {
+    height: 15px;
+    position: relative;
+    top: -2px;
+    vertical-align: text-bottom;
+    width: 15px;
+}
+
+.message {
+    white-space: pre-wrap;
+}
+
+#imageboard-toggle, #imageboard-toggle:checked + h1 + form {
+    display: none;
+}
+#imageboard-toggle:checked + h1 {
+    border-bottom: none !important;
+}
+#imageboard-toggle:checked + h1 > label[for="imageboard-toggle"] > i:first-of-type {
+    transform: rotate(-90deg);
+}
+#imageboard-toggle:checked + h1 > label[for="imageboard-toggle"] > i:last-of-type {
+    transform: rotate(90deg);
+}
+#imageboard-toggle + h1:hover > label[for="imageboard-toggle"] > i:first-of-type,
+#imageboard-toggle + h1:hover > label[for="imageboard-toggle"] > i:last-of-type {
+    text-shadow: 0 0 1px red, 0 0 2px fuchsia;
+    transform: none;
+    transition: 1s transform, .5s text-shadow;
+}
+#imageboard-toggle + h1:hover > label[for="imageboard-toggle"] {
+    text-shadow: 0 0 1px blue, 0 0 2px lime;
+    transition: .25s text-shadow;
+}
+label[for="imageboard-toggle"] {
+    cursor: var(--cursor-pointer);
+    display: block;
+    margin-left: -4px;
+    text-align: center;
+    width: calc(100% + 8px);
+}
+label[for="imageboard-toggle"] > i {
+    pointer-events: none;
+    transition: 1s transform;
+}
+
+.content-field {
+    height: 168px;
+}
+
+.content-field > textarea {
+    height: calc(100% - 8px);
+    overflow-y: auto;
+    resize: none;
+}
+
+.file-field {
+    height: 140px;
+}
+
+.file-field > input[name="file"] {
+    bottom: 8px;
+    position: absolute;
+}
+
+.submit-field {
+    height: 32px;
+}
+
+.submit-field > .button-wrap {
+    height: calc(100% - 8px);
+    /*left: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;*/
+}
+
+.feedback-field {
+    height: 50px;
+}
+
+#content > article > article {
+    background: rgba( 32, 32, 32, .25);
+    border: 1px solid rgba(255, 255, 255, .125);
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba( 0, 0, 0, .5), 0 0 4px rgba(0, 0, 0, .5);
+    margin: 8px 8px 0;
+    overflow: hidden;
+}
+#content > article > article:last-of-type {
+    margin-bottom: 8px;
+}
+
+#content > article > article > .thumb {
+    height: 8.4375vw;
+    min-height: 50.25px;
+    min-width: 90px;
+    width: 15vw;
+}
+
+#content > article > article > h1:first-of-type {
+    background: rgba(255, 255, 255, .03125);
+    border-bottom: 1px solid rgba(255, 255, 255, .125);
+    font-family: "Montserrat", sans-serif, "Anonymous Pro", monospace;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 20px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

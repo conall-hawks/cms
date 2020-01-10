@@ -1,0 +1,6 @@
+{
+    "description": "Blank source map. Redirect invalid JavaScript source maps to this file to prevent 404s.",
+    "mappings":    [],
+    "sources":     [],
+    "version":     3
+}

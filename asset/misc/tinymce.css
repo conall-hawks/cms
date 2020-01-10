@@ -1,0 +1,25 @@
+/*-----------------------------------------------------------------------------\
+| Document Root                                                                |
+\-----------------------------------------------------------------------------*/
+
+/* Variables and normalizations. */
+@import url("/asset/share/code/css/variables.css");
+@import url("/asset/css/layout.css");
+
+/* Everything. */
+* {
+    cursor: var(--cursor);
+}
+
+/* Document. */
+html {
+    height: 100%;
+    overflow: unset;
+}
+
+/* Document body. */
+body {
+    max-height: 100%;
+    max-width: calc(100% - 5px);
+    overflow: visible !important;
+}

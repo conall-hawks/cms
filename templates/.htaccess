@@ -1,7 +1,0 @@
-<Files global.css>
-	Allow from all
-</Files>
-<Files global.js>
-	Allow from all
-</Files>
-Deny from all

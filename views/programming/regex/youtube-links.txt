@@ -1,3 +1,0 @@
-Matches every youtube link I've thrown at it. Creates two capturing groups: [1] the link itself, and [2] the ID
-
-((?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be(?:-nocookie)?\.com)\/(?:.*v(?:\/|=)|(?:.*\/)?)([\w'-]+))

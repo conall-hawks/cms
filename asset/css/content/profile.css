@@ -1,0 +1,119 @@
+
+#profile form, #profile-wrap {
+    height: 36.5vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+#profile table {
+    height: calc(100% - 4px);
+    left: 50%;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 4px);
+}
+#profile fieldset {
+    /* background-color: #111; */
+    /* background-image: url('/asset/image/background.svg'); */
+    /* background-color: rgba(0, 0, 0, .25); */
+    background-color: var(--background-darkest);
+    background-image: linear-gradient(to bottom right, rgba(128, 0, 0, .0625), rgba(32, 0, 0, .0625));
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-dark);
+    height: calc(100% - 8px);
+    left: 50%;
+    margin: 0;
+    padding: 0;
+    pointer-events: all;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 8px);
+}
+#profile td {
+    position: relative;
+}
+label[for="photo-file"], label[for="avatar-file"] {
+    background-size: 100% 100%;
+    box-shadow: 0 0 5vw rgba(0, 0, 0, .5) inset;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+}
+label[for="photo-file"] {
+    box-shadow: 0 0 10vw rgba(0, 0, 0, .5) inset;
+    left: -1px;
+    width: calc(100% + 2px);
+}
+#photo-file, #avatar-file {
+    display: none;
+}
+#avatar {
+    background-color: var(--background-darker);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+    padding: 0;
+}
+#profile fieldset table {
+    height: unset;
+    left: 0;
+    pointer-events: all;
+    table-layout: auto;
+    top: 0;
+    transform: none;
+}
+#profile legend {
+    z-index: 1;
+}
+
+#upload {
+    overflow: hidden;
+}
+iframe {
+    border: none;
+    float: left;
+    width: 100%;
+}
+#frame-progress { height: 106px; }
+#frame-select   { height: 114px; }
+#frame-list     { height: 575px; }
+/*
+#content table fieldset > legend {
+    color: lime;
+    margin-left: 8px;
+}
+
+#content table fieldset > label {
+    clear: left;
+    float: left;
+    line-height: 24px;
+    margin: 8px 0 2px 8px;
+    width: 100px;
+}
+#content table fieldset > label + input {
+    width: calc(100% - 132px);
+}
+
+#avatar {
+}
+#avatar > legend {
+    z-index: 1;
+}
+label[for="avatar-file"] {
+    border-radius: 2px;
+    box-shadow: 0 0 50px 25px rgba(0, 0, 0, .25) inset;
+    cursor: var(--cursor-pointer);
+    height: 100%;
+    margin: 0 !important;
+    opacity: .9;
+    padding: 0 !important;
+    width: 100% !important;
+}
+#avatar-file {
+    display: none;
+}*/

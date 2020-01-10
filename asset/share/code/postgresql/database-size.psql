@@ -1,0 +1,5 @@
+/* Database size, in bytes. */
+SELECT pg_database_size(current_database());
+
+/* Database size, in megabytes. */
+SELECT pg_size_pretty(pg_database_size(current_database()));

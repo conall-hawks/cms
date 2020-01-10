@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <!--#############################################################-->
+            <!--# A wonderful HTML boilerplate!                             #-->
+            <!--#############################################################-->
+
+            <!-- Best-attempt HTTPS. -->
+            <script>
+                if(location.protocol !== 'https:'){
+                    var path = 'https:' + window.location.href.substring(window.location.protocol.length);
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("HEAD", path);
+                    xhr.onreadystatechange = function(){
+                        if(this.readyState === this.DONE && this.status === 200){
+                            location.href = path;
+                        }
+                    }
+                    try{xhr.send()}finally{}
+                }
+            </script>
+
+            <!-- Metadata. -->
+            <title>Boilerplate</title>
+            <base href="/" />
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible"   content="IE=edge" />
+            <meta name="application-name"        content="Boilerplate" />
+            <meta name="author"                  content="Jon Hawks" />
+            <meta name="copyright"               content="Example, Inc. 2018" />
+            <meta name="description"             content="I am a wonderful boilerplate!" />
+            <meta name="keywords"                content="amazing, awesome, boilerplate, gnarly, radical, tubular, wonderful" />
+            <meta name="msapplication-TileColor" content="#FFFFFF" />
+            <meta name="msapplication-TileImage" content="/asset/image/favicon.png" />
+            <meta name="referrer"                content="no-referrer" />
+            <meta name="robots"                  content="follow, index, noarchive" />
+            <meta name="viewport"                content="initial-scale=1.0, height=device-height, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width" />
+
+            <!-- Open Graph metadata. -->
+            <meta name="og:description" content="I am a wonderful boilerplate!" />
+            <meta name="og:image"       content="/asset/image/favicon.png" />
+            <meta name="og:site_name"   content="Boilerplate" />
+            <meta name="og:title"       content="I am a wonderful boilerplate!" />
+            <meta name="og:url"         content="example.com" />
+
+            <!-- Twitter metadata. -->
+            <meta name="twitter:card" content="" />
+            <meta name="twitter:site" content="@example.com" />
+
+            <!-- Apple metadata. -->
+            <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL" />
+
+            <!-- DNS prefetching. -->
+            <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+            <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+            <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+            <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+            <link rel="dns-prefetch" href="https://cdn.rawgit.com/" />
+            <link rel="dns-prefetch" href="https://google-analytics.com" />
+            <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+            <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+            <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+            <link rel="dns-prefetch" href="https://gstatic.com" />
+            <link rel="dns-prefetch" href="https://google.com" />
+            <link rel="dns-prefetch" href="https://s.ytimg.com" />
+
+            <!-- Icons. -->
+            <link rel="apple-touch-icon" href="/asset/image/favicon.png" />
+            <link rel="icon"             href="/asset/image/favicon.png" sizes="16x16 24x24 32x32 48x48 64x64 128x128 192x192" />
+
+            <!-- Asynchronous include w/ fallback functions. -->
+            <script>function cssAsync(t,n){var e=new XMLHttpRequest;e.open("HEAD",t),e.onreadystatechange=function(){if(this.readyState===this.DONE){var e=document.createElement("link");e.rel="stylesheet",200===this.status?e.href=t:e.href=n,document.head.insertBefore(e,document.head.firstChild)}};try{e.send()}finally{}}</script>
+            <script>function  jsAsync(e,n){var t=new XMLHttpRequest;t.open("HEAD",e),t.onreadystatechange=function(){if(this.readyState===this.DONE){var t=document.createElement("script");200===this.status?t.src=e:t.src=n,document.head.insertBefore(t,document.head.firstChild)}};try{t.send()}finally{}}</script>
+
+            <!-- CSS libraries. -->
+            <script>
+                cssAsync("https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css", "/asset/misc/normalize.css");
+                cssAsync("https://fonts.googleapis.com/css?family=Montserrat:400,700"              , "/asset/misc/montserrat.css");
+                cssAsync("https://cdn.jsdelivr.net/fontawesome/latest/css/font-awesome.min.css"    , "/asset/misc/font-awesome.css");
+                cssAsync("https://cdn.jsdelivr.net/highlight.js/latest/styles/sunburst.min.css"    , "/asset/misc/highlight.css");
+            </script>
+
+            <!-- CSS libraries' non-JavaScript fallback. -->
+            <noscript>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@latest/normalize.min.css" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/latest/css/font-awesome.min.css" />
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/sunburst.min.css" />
+            </noscript>
+
+            <!-- CSS boilerplate. (To be put in a separate .css file.) -->
+            <style>
+                /* CSS variables. */
+                html, body, :root {
+                    --color: #000;
+                }
+
+                /* Global styles; normalizations. */
+                * {
+                    margin: 0;
+                    padding: 0;
+                    user-select: none;
+                }
+                html {
+                    color: var(--color);
+                    font-family: monospace;
+                    font-size: 14px;
+                    line-height: unset;
+                    overflow-x: hidden;
+                    overflow-y: scroll;
+                    text-rendering: geometricPrecision;
+                }
+
+                /* Nothing special here: just makes this boilerplate look pretty if you try to open it in a browser. */
+                header, main, footer {
+                    line-height: 33vh;
+                    text-align: center;
+                }
+                footer {
+                    bottom: 0;
+                    line-height: 20px;
+                    position: fixed;
+                    width: 100vw;
+                }
+            </style>
+
+            <!-- JavaScript libraries. -->
+            <script async src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+            <!--[if lt IE 9]><script async src="https://cdn.jsdelivr.net/npm/selectivizr2@latest/selectivizr2.min.js"></script><![endif]-->
+            <!--[if lt IE 9]><script async src="https://cdn.jsdelivr.net/npm/ie8@latest/build/ie8.max.min.js"></script><![endif]-->
+            <!--[if lt IE 9]><script async src="https://cdn.jsdelivr.net/npm/html5shiv@latest/dist/html5shiv.min.js"></script><![endif]-->
+            <!--[if lt IE 9]><script async src="https://cdn.jsdelivr.net/flashcanvas/latest/flashcanvas.js"></script><![endif]-->
+            <script async src="https://cdn.jsdelivr.net/npm/es5-shim@latest/es5-shim.min.js"></script>
+            <script async src="https://cdn.jsdelivr.net/npm/es5-shim@latest/es5-sham.min.js"></script>
+            <script async src="https://cdn.jsdelivr.net/npm/es6-shim@latest/es6-shim.min.js"></script>
+            <script async src="https://cdn.jsdelivr.net/npm/json3@latest/lib/json3.min.js"></script>
+            <script async src="https://cdn.jsdelivr.net/npm/dom4@latest/build/dom4.max.min.js"></script>
+            <script async src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+            <script async src="https://cdn.jsdelivr.net/npm/prefixfree@latest/prefixfree.min.js"></script>
+            <script async src="https://cdn.jsdelivr.net/npm/calc-polyfill@latest/calc.min.js"></script>
+            <script async src="https://cdn.jsdelivr.net/npm/html5media@latest/dist/api/1.2.1/html5media.min.js"></script>
+            <script async src="https://cdn.rawgit.com/dperini/nwxforms/master/src/nwxforms.js"></script>
+            <script>
+                window.startNwxforms = setInterval(function(){
+                    if(typeof window.nwxforms === "function" && document.body){
+                        clearInterval(startNwxforms);
+                        nwxforms(window);
+                    }
+                }, 1000);
+            </script>
+
+            <!-- Function throttle. -->
+            <script>function throttle(n,l,t){var a,e,u,r,i=0;t||(t={});var o=function(){i=t.leading===!1?0:Date.now(),a=null,r=n.apply(e,u),a||(e=u=null)},c=function(){var c=Date.now();i||t.leading!==!1||(i=c);var f=l-(c-i);return e=this,u=arguments,0>=f||f>l?(a&&(clearTimeout(a),a=null),i=c,r=n.apply(e,u),a||(e=u=null)):a||t.trailing===!1||(a=setTimeout(o,f)),r};return c.cancel=function(){clearTimeout(a),i=0,a=e=u=null},c};</script>
+
+            <!-- Event listener. -->
+            <script>function listen(t,n,e){return"object"!=typeof e&&(e=window),"function"==typeof e.addEventListener?e.addEventListener(t,n):"function"==typeof e.attachEvent?e.attachEvent("on"+t,n):void 0}</script>
+
+            <!-- Syntax Highlighting. -->
+            <script>
+                jsAsync("https://cdn.jsdelivr.net/highlight.js/latest/highlight.min.js", "/asset/misc/highlight.js");
+                if(window.startHljs !== "number") window.startHljs = setInterval(function(){
+                    if(typeof window.hljs === "object"){
+                        clearInterval(startHljs);
+                        var code = document.getElementsByTagName("code");
+                        for(var i = code.length - 1; i >=0; i--) hljs.highlightBlock(code[i]);
+                    }
+                }, 100);
+            </script>
+
+            <!-- Google Adsense. -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+            <!-- Google Analytics. -->
+            <script async defer src="https://www.google-analytics.com/analytics.js"></script>
+            <script>
+                window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+Number(new Date);
+                ga("create","{{{YOUR_ANALYTICS_KEY}}}","auto");ga("send","pageview")
+            </script>
+        </head>
+
+        <body>
+            <header>
+                HTML Boilerplate
+            </header>
+
+            <main>
+                &lt;3
+            </main>
+
+            <footer>
+                Example, Inc. &copy;1969
+            </footer>
+        </body>
+</html>

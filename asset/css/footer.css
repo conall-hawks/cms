@@ -1,0 +1,116 @@
+/*-----------------------------------------------------------------------------\
+| Footer                                                                       |
+\-----------------------------------------------------------------------------*/
+#footer {
+    background: rgba(0, 0, 0, .65);
+    bottom: 0;
+    font-size: 10px;
+    height: 20px;
+    position: fixed;
+    white-space: nowrap;
+    width: 100%;
+}
+#footer td {
+    border-top: var(--border);
+    position: relative;
+}
+#footer td:not(:last-of-type) {
+    border-right: var(--border);
+    text-align: center;
+}
+#footer td > a {
+    display: block;
+}
+#footer td > a:focus,
+#footer td > a:hover {
+    animation: .0625s electrify;
+}
+
+/*-----------------------------------------------------------------------------\
+| Logger                                                                       |
+\-----------------------------------------------------------------------------*/
+#log-toggle {
+    display: none;
+}
+#log {
+    background: rgba(0, 0, 0, .85);
+    border-right: var(--border);
+    border-top: var(--border);
+    border-top-right-radius: 2px;
+    bottom: 0;
+    font-size: 8px;
+    height: 100%;
+    line-height: 19px;
+    left: 0;
+    overflow: hidden;
+    padding: 0 4px;
+    position: absolute;
+    text-align: left;
+    white-space: pre;
+    width: calc(100% - 8px);
+}
+#log-toggle:checked + #log {
+    animation: fade-in .125s;
+    padding-bottom: 4px;
+    height: 150px;
+    line-height: 12px;
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+
+#benchmark {
+    padding: 0 4px;
+    text-align: right;
+}
+
+/*-----------------------------------------------------------------------------\
+| Chat                                                                         |
+\-----------------------------------------------------------------------------*/
+#chat-toggle, #chat {
+    display: none;
+}
+#chat {
+    background: rgba(0, 0, 0, .85);
+    border-left: var(--border);
+    border-top: var(--border);
+    border-top-left-radius: 2px;
+    bottom: calc(100% + 1px);
+    height: 150px;
+    left: calc(-200% - 3px);
+    padding: 0 4px;
+    position: absolute;
+    width: calc(500% + 5px);
+}
+label[for="chat-toggle"] {
+    cursor: var(--cursor-pointer);
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 1px;
+    width: 100%;
+}
+label[for="chat-toggle"]:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+label[for="chat-toggle"]:focus,
+label[for="chat-toggle"]:hover {
+    animation: .0625s electrify;
+    color: var(--color-lighter);
+    text-shadow: 0 0 4px blue, 0 0 8px purple;
+    transition: 1s text-shadow;
+}
+#chat-toggle:checked + label {
+    color: lime;
+    text-shadow: var(--text-shadow);
+}
+#chat-toggle:checked + label + #chat {
+    animation: fade-in .125s;
+    display: table;
+}
+#chat td {
+    height: 25%;
+    overflow: hidden;
+}

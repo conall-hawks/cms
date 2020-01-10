@@ -1,8 +1,0 @@
-RewriteEngine on
-RewriteRule ^(.(?!(.css|.js|.png|.jpg|.gif|.webm|.cur|.svg|.eot|.woff|.ttf|captcha.php|chat.php|log.html)$))*$ index.php
-
-#Turn off "on line 0" php errors
-php_flag display_startup_errors off
-
-# Allow Cross Origin Resource Sharing (CORS); This is for the associated mobile app!
-Header set Access-Control-Allow-Origin "*"

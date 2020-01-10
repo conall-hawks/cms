@@ -1,0 +1,275 @@
+#cms-content-fieldset {
+    position: relative;
+    min-height: 60vh;
+}
+#cms-content {
+    height: 100%;
+    resize: none;
+}
+
+/* TineMCE customizations. */
+#cms-content + .tox-tinymce {
+    background: var(--background-dark);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-dark);
+    height: 100% !important;
+    position: absolute;
+    width: 100%;
+}
+
+/* Menu bar, toolbar, and text area. */
+.tox .tox-menubar,
+.tox .tox-toolbar {
+    background: none;
+    border-top: var(--border);
+    color: var(--color);
+    cursor: var(--cursor);
+}
+
+/* Menu bar buttons. */
+.tox .tox-mbtn {
+    color: var(--color);
+    margin: 4px 5px 5px 0;
+    transition: 2s box-shadow;
+}
+
+/* Menu bar list. */
+.tox .tox-menu {
+    background: #222;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-dark);
+}
+
+/* Menu bar list item. */
+.tox .tox-collection__item {
+    color: var(--color);
+    cursor: var(--cursor-pointer);
+}
+.tox svg {
+    fill: var(--color);
+    cursor: inherit;
+}
+.tox .tox-collection--list {
+    cursor: var(--cursor);
+}
+.tox .tox-collection__item--state-disabled {
+    color: var(--color-darker);
+    cursor: var(--cursor);
+}
+
+/* Menu bar buttons' labels. */
+.tox .tox-mbtn__select-label {
+    cursor: var(--cursor);
+}
+
+.tox .tox-swatches__picker-btn,
+.tox .tox-swatches__picker-btn svg {
+    cursor: var(--cursor-pointer);
+}
+
+/* Toolbar buttons. */
+.tox .tox-tbtn {
+    color: var(--color);
+    margin: 5px 4px 5px 1px;
+    transition: 2s box-shadow;
+}
+
+.tox .tox-tbtn:last-of-type {
+    margin-right: 1px;
+}
+
+.tox .tox-mbtn--select {
+    height: 20px;
+}
+
+/* Menu bar and toolbar button hover. */
+.tox .tox-mbtn--active,
+.tox .tox-mbtn--select:focus,
+.tox .tox-mbtn--select:hover,
+.tox .tox-tbtn:hover:not(.tox-tbtn--disabled):focus,
+.tox .tox-tbtn:hover:not(.tox-tbtn--disabled):hover,
+.tox .tox-tbtn--active,
+.tox .tox-tbtn--enabled,
+.tox .tox-tbtn--select:focus,
+.tox .tox-tbtn--select:hover {
+    background: var(--background) !important;
+    box-shadow: var(--box-shadow-dark) !important;
+    color: var(--color-lighter) !important;
+    cursor: var(--cursor) !important;
+    transition: .25s box-shadow, .5s color, 1s text-shadow;
+}
+.tox .tox-tbtn--disabled,
+.tox .tox-tbtn--disabled:hover,
+.tox .tox-tbtn:disabled,
+.tox .tox-tbtn:disabled:hover {
+    background: none !important;
+}
+.tox .tox-tbtn:hover:not(.tox-tbtn--disabled) svg {
+    fill: var(--color-lighter) !important;
+}
+
+/* Toolbar button with dropdown. */
+.tox .tox-tbtn__select-label {
+    cursor: var(--cursor);
+}
+
+.tox .tox-split-button:hover {
+    box-shadow: var(--box-shadow) !important;
+}
+
+/* Toolbar button colors. */
+.tox .tox-tbtn svg {
+    cursor: inherit;
+    fill: var(--color) !important;
+}
+
+/* Toolbar button hover colors. */
+.tox .tox-tbtn:focus svg,
+.tox .tox-tbtn:hover svg {
+    fill: var(--color-light);
+}
+
+/* Toolbar button disabled colors. */
+.tox .tox-tbtn:hover:not(.tox-tbtn--disabled) {
+    background: unset;
+    box-shadow: unset;
+    color: unset;
+}
+.tox .tox-tbtn--disabled svg,
+.tox .tox-tbtn--disabled:hover svg,
+.tox .tox-tbtn:disabled svg,
+.tox .tox-tbtn:disabled:hover svg {
+    fill: var(--color-darker) !important;
+    filter: drop-shadow(0 0 2px black);
+}
+
+/* Editing area. */
+.tox .tox-edit-area {
+    border-top: var(--border);
+}
+.tox .tox-edit-area__iframe {
+    background: unset;
+}
+
+/* Footer. */
+.tox .tox-statusbar {
+    background-color: unset;
+    border-top: var(--border);
+    color: var(--color);
+    cursor: var(--cursor);
+}
+
+/* Style path and word count in footer. */
+.tox .tox-statusbar__path-item,
+.tox .tox-statusbar__wordcount {
+    color: var(--color);
+    cursor: var(--cursor-pointer) !important;
+}
+
+/* Branding in footer. */
+.tox .tox-statusbar__branding {
+    display: none;
+}
+
+/* Dialog box. */
+.tox .tox-dialog-wrap__backdrop {
+    background-attachment: fixed;
+    background-color: #111;
+    background-image: url("/asset/image/background.svg");
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 4px auto;
+    cursor: var(--cursor);
+    opacity: .95;
+}
+.tox .tox-dialog {
+    background: var(--background);
+}
+.tox .tox-dialog__header {
+    background: none;
+    color: var(--color);
+}
+
+.tox .tox-selectfield select, .tox .tox-textarea, .tox .tox-textfield, .tox .tox-toolbar-textfield {
+    background: var(--background-darker);
+    color: var(--color);
+    overflow: visible;
+}
+
+.tox .tox-selectfield select, .tox .tox-selectfield option {
+    background: #222 !important;
+    cursor: var(--cursor) !important;
+}
+
+
+.tox .tox-selectfield select:focus,
+.tox .tox-textarea:focus,
+.tox .tox-textfield:focus {
+    border: var(--border-light);
+}
+
+.tox .tox-dialog__footer {
+    background: none;
+    color: var(--color);
+}
+
+.tox .tox-pop__dialog {
+    background: #222;
+}
+
+.tox .tox-pop.tox-pop--left::after {
+    border-color: transparent #222 transparent transparent;
+}
+.tox .tox-pop.tox-pop--top::after {
+    border-color: transparent transparent #222 transparent;
+}
+
+.tox .tox-pop::after,
+.tox .tox-pop::before {
+    cursor: var(--cursor);
+}
+
+.tox .tox-notification--error {
+    background: #222;
+    border-color: var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.tox .tox-collection--toolbar .tox-collection__item--active:not(.tox-collection__item--state-disabled),
+.tox .tox-collection--list .tox-collection__item--active:not(.tox-collection__item--state-disabled){
+    background: var(--background);
+}
+.tox .tox-insert-table-picker .tox-insert-table-picker__selected {
+    background: var(--background);
+    border-color: var(--border-color);
+}
+
+.tox .tox-button {
+    background: var(--background);
+    border: var(--border);
+    box-shadow: var(--box-shadow-dark);
+    color: var(--color);
+    cursor: var(--cursor-pointer);
+    transition: .25s box-shadow, .5s color, 1s text-shadow;
+}
+.tox .tox-button svg {
+    cursor: var(--cursor-pointer);
+}
+
+.tox .tox-button:focus,
+.tox .tox-button:hover {
+    background: var(--background-dark) !important;
+    border: var(--border-dark) !important;
+    color: var(--color-lighter);
+    transition: none;
+}
+
+.tox .tox-statusbar__path-item {
+    text-transform: lowercase;
+}
+
+.tox .tox-statusbar__wordcount {
+    text-transform: capitalize;
+}

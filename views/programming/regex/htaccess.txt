@@ -1,6 +1,0 @@
-// An example of negation. Everything except the stuff in ?!(here|and|here) is routed to index.php
-// So for this example: all local stylesheets, javascript, photos, fonts, and captcha will still work.
-// You must be careful if you wish to use a whitelist--new features could break--but it works well.
-
-RewriteEngine on
-RewriteRule ^(.(?!(.css|.js|.png|.jpg|.gif|.webm|.svg|.cur|.eot|.woff|.ttf|captcha.php)$))*$ index.php

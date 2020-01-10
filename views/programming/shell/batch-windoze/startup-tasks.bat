@@ -1,1 +1,0 @@
-START "" "C:\something.exe"

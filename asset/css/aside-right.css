@@ -1,0 +1,9 @@
+/*-----------------------------------------------------------------------------\
+| Right Aside                                                                  |
+\-----------------------------------------------------------------------------*/
+#aside-right, #aside-right-2 {
+    border-width: 1px !important;
+    clear: right;
+    float: right;
+    margin-left: 8px !important;
+}

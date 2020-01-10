@@ -1,0 +1,78 @@
+/*-----------------------------------------------------------------------------\
+| Content Area                                                                 |
+\-----------------------------------------------------------------------------*/
+
+/* Content Asides */
+#main > aside {
+    background: var(--background-dark);
+    border: var(--border-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow), 0 0 4px rgba(0, 0, 0, .5);
+    height: 600px;
+    margin-bottom: 8px;
+    min-width: 157px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: calc(16.667% - 5px);
+}
+
+/* Parent highlighting disabled in lists. */
+#main > aside > li > a.parent {
+    text-shadow: unset;
+}
+
+/*-----------------------------------------------------------------------------\
+| Collapsible lists.                                                           |
+\-----------------------------------------------------------------------------*/
+.collapsible {
+    float: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    width: 100%;
+}
+.collapsible .collapsible {
+    width: calc(100% - 24px);
+    padding-left: 24px;
+}
+.collapsible li {
+    height: 24px;
+    width: 100%;
+}
+.collapsible input[type="checkbox"], .collapsible input + label + .collapsible {
+    display: none;
+}
+.collapsible input:checked + label + .collapsible {
+    display: block;
+}
+.collapsible li > a, .collapsible li > label {
+    background-position: 24px 50%;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    clear: left;
+    cursor: var(--cursor-pointer);
+    float: left;
+    line-height: 24px;
+    padding-left: 48px;
+    width: calc(100% - 48px);
+}
+.collapsible .dir > label, .collapsible .dir > a {
+    background-position: 4px 50%, 24px 50%;
+    background-size: 12px 12px, 20px 20px;
+    padding-left: 48px;
+}
+.collapsible input + label         { background-image: url("/asset/icon/expand.svg"), url("/asset/icon/dir.png"); }
+.collapsible input + label:hover   { filter: brightness(150%); }
+.collapsible input:checked + label { background-image: url("/asset/icon/collapse.svg"), url("/asset/icon/dir.png"); }
+.collapsible li > a                { background-image: url(""), url("/asset/icon/file.svg"); }
+.collapsible li > a:hover          { filter: brightness(150%); }
+
+/*-----------------------------------------------------------------------------\
+| Somewhere Between Tablets and Handheld Devices                               |
+\-----------------------------------------------------------------------------*/
+@media(max-width: 720px){/*
+    #main > aside {
+        display: none;
+    }*/
+}
