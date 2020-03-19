@@ -72,7 +72,7 @@
                                 </td>
                                 <td>
                                     <a href="<?php echo $url; ?>" target="_blank" title="Click to download: &quot;<?php echo $name; ?>&quot;." download>
-                                        <?php echo $name; ?>
+                                        <div><?php echo $name; ?></div>
                                     </a>
                                 </td>
                                 <td title="MIME type: <?php $mime = mime($inode['name']); $mime = $mime === 'application/octet-stream' ? mime($path) : $mime; echo $mime; ?>">

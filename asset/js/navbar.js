@@ -102,3 +102,83 @@ document.addEventListener("click", function(event){
         }
     }
 });
+
+/*-----------------------------------------------------------------------------\
+| Glass for browsers which don't support backdrop-filter.                      |
+\-----------------------------------------------------------------------------*/
+if(!CSS.supports("backdrop-filter", "blur(2px)") && !CSS.supports("-webkit-backdrop-filter", "blur(2px)")){
+    function glass(source, target, filter, scroller){
+
+        /* Build iframe. */
+        var iframe = document.createElement("iframe");
+        iframe.style.border        = "none";
+        iframe.style.height        = "100%";
+        iframe.style.left          = "0";
+        iframe.style.overflow      = "hidden";
+        iframe.style.pointerEvents = "none";
+        iframe.style.position      = "absolute";
+        iframe.style.top           = "0";
+        iframe.style.width         = "100%";
+        iframe.style.zIndex        = target.style.zIndex - 2;
+        target.appendChild(iframe);
+
+        /* Add page elements to iframe; delay by 1 sec to wait for iframe to initialize. */
+        setTimeout(function(){
+
+            /* Add head (scripts only). */
+            var scripts = source.ownerDocument.head.getElementsByTagName("script");
+            for(var i = 0; i < scripts.length; i++){
+                var script = document.createElement("script");
+                script.appendChild(document.createTextNode(scripts[i].innerHTML));
+                if(scripts[i].getAttribute("async")) script.setAttribute("async", scripts[i].getAttribute("async"));
+                if(scripts[i].getAttribute("id"))    script.setAttribute("id", scripts[i].getAttribute("id"));
+                if(scripts[i].getAttribute("nonce")) script.setAttribute("nonce", scripts[i].getAttribute("nonce"));
+                if(scripts[i].getAttribute("src"))   script.setAttribute("src", scripts[i].getAttribute("src"));
+                iframe.contentDocument.head.appendChild(script);
+            }
+
+            /* Add body. */
+            iframe.contentDocument.body.innerHTML = source.innerHTML;
+
+            /* Add a blur to the entire iframe. */
+            var style = document.createElement("style");
+            style.innerHTML = "html {\
+                filter:      " + filter + ";\
+                height:      " + source.scrollHeight + "px;\
+                overflow-y:  hidden;\
+            }";
+            iframe.contentDocument.body.appendChild(style);
+
+            /* Remove target from iframe. */
+            var headers = iframe.contentDocument.body.getElementsByTagName(target.tagName);
+            for(var i = 0; i < headers.length; i++){
+                if(headers[i].isEqualNode(target)){
+                    headers[i].parentNode.removeChild(headers[i]);
+                }
+            }
+
+            /* Remove fixed elements. */
+            iframe.contentDocument.body.querySelector("#footer").style.display = "none";
+
+            /* Repair target's background we lost due to embedding an iframe. */
+            //var div = document.createElement("div");
+            //div.style.backgroundColor = window.getComputedStyle(target, null).getPropertyValue("background-color");
+            //div.style.height          = "100%";
+            //div.style.left            = "0";
+            //div.style.position        = "absolute";
+            //div.style.top             = "0";
+            //div.style.width           = "100%";
+            //div.style.zIndex          = target.style.zIndex - 1;
+            //target.appendChild(div);
+
+            /* Synchronize iframe scroll with page. */
+            iframe.contentWindow.scrollTo(window.scrollX, window.scrollY - target.getBoundingClientRect().top);
+        }, 1);
+    }
+    glass(document.body, document.querySelector("#navbar"), "blur(2px)");
+
+    /* Maintain synchronized iframe scroll with page. */
+    window.addEventListener("scroll", function(event){
+        document.querySelector("#navbar > iframe").contentWindow.scrollTo(window.scrollX, window.scrollY - document.querySelector("#navbar").getBoundingClientRect().top);
+    }, true);
+}

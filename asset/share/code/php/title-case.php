@@ -39,9 +39,9 @@ function title($input, $normalize = true){
             'IGMP', 'iOS', 'IP', 'iPhone', 'iptables', 'IPv6', 'JavaScript',
             'JS', 'JSON', 'LLMNR', 'MAC', 'MD5', 'md5sum', 'MIME', 'MSI',
             'MySQL', 'NAT', 'NetBIOS', 'NTP', 'OneDrive', 'OSX', 'PC', 'PDF',
-            'PHP', 'phpMyAdmin', 'PostgreSQL', 'PowerShell', 'RegEx', 'RPC',
-            'sha256sum', 'sha512sum', 'SMB', 'SQL', 'SVG', 'TV', 'UAC', 'UPnP',
-            'URL', 'WiFi', 'WinSxS', 'WUDO', 'x64', 'x86'];
+            'PHP', 'phpMyAdmin', 'PostgreSQL', 'PowerShell', 'RegEx', 'RGB',
+            'RPC', 'sha256sum', 'sha512sum', 'SMB', 'SQL', 'SVG', 'TV', 'UAC',
+            'UPnP', 'URL', 'WiFi', 'WinSxS', 'WUDO', 'x64', 'x86'];
         $scwords = array_combine(array_map('strtolower', $scwords), $scwords);
 
         // Special words to look for. Add more as needed.

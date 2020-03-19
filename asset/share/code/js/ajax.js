@@ -120,7 +120,7 @@ function loadPage(link, scrollY, method, params){
 
                 /* If redirected, update address bar. */
                 if(this.responseURL && this.responseURL.split("#")[0] !== window.location.href.split("#")[0]){
-                    window.history.replaceState({pageYOffset: window.pageYOffset, pathname: target.pathname}, null, window.location.href);
+                    window.history.replaceState({pageYOffset: window.pageYOffset, pathname: link}, null, window.location.href);
                     window.history.pushState(null, null, this.responseURL);
                 }
 
@@ -197,19 +197,32 @@ function loadPage(link, scrollY, method, params){
 
                 /* Best-attempt insert malformed response. */
                 if(!response.querySelector("#content")){
-                    console.warn("Received malformed response.");
 
-                    // Highlight header link.
+                    /* Highlight header link. */
                     try{headerLinkHighlighter()}catch(error){console.error(error)}
 
+                    /* Insert content. */
                     var content = document.getElementById("content");
                     if(content) content.innerHTML = "<article><p>" + response.innerHTML + "</p></article>";
 
-                    var aside = document.getElementById("aside-left");
-                    if(aside) aside.innerHTML = "";
+                    /* Zero-out aside-left. */
+                    //var aside = document.getElementById("aside-left");
+                    //if(aside) aside.innerHTML = "";
 
-                    try{document.title = document.title.split(" | ")[0] + " | "}catch(error){console.error(error)}
+                    /* Resolve title. */
+                    try{document.title = "Error | " + window.location.hostname.charAt(0).toUpperCase() + window.location.hostname.slice(1)}catch(error){console.error(error)}
                     try{document.getElementById("loading-notify").innerHTML = ""}catch(error){console.error(error)}
+
+                    /* Add response code to footer. */
+                    try{document.querySelector("#footer td:nth-child(3)").innerText = "Response: " + this.status}catch(error){console.error(error)}
+
+                    /* Ask to reload the malformed page. */
+                    //console.warn("Received malformed response.");
+                    //if(confirm("Received malformed response. Would you like to reload the page?")){
+                    //    //window.location.reload();
+                    //    loadPage(window.location.pathname);
+                    //    break;
+                    //}
                 }
 
                 /* Get CSP nonce if applicable. */
@@ -282,6 +295,9 @@ function loadPage(link, scrollY, method, params){
                         }
 
                     }
+                }catch(error){console.error(error)}
+                try{
+                    glass(document.body, document.querySelector("#navbar"), "blur(2px)");
                 }catch(error){console.error(error)}
                 try{
                     autofocus = document.querySelectorAll("input[autofocus]");

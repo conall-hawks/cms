@@ -1,10 +1,17 @@
 #navbar {
-    background: rgba(34, 34, 34, 0.8);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    background: rgba(255, 255, 255, .0625);
     border-bottom: var(--border);
     height: 52.333px;
     position: fixed;
     top: 0;
     width: 100%;
+}
+@supports(backdrop-filter: blur(2px)){
+    #navbar {
+        background: none;
+    }
 }
 
  #navbar td > div {

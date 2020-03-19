@@ -75,7 +75,7 @@ document.addEventListener("keyup", eventCapsLock);
 
 /*-----------------------------------------------------------------------------\
 | Nifty flickering effect.                                                     |
-\--------------------------------------------------------------------=---2------*/
+\-----------------------------------------------------------------------------*/
 var flicker = function(loop){
     var elements = document.querySelectorAll("#header td > div a");
     var index = Math.floor(Math.random() * elements.length);

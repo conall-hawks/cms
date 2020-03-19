@@ -296,8 +296,9 @@ abstract class View {
 
         // String parameter; include.
         elseif(is_string($css) && is_file($css)){
-            $id = pathinfo($css);
-            $id = str_replace('/', '-', $id['dirname'].'/'.$id['filename']);
+            $css = preg_replace('/\/+/','/', rtrim($css, '/'));
+            $id  = pathinfo($css);
+            $id  = str_replace('/', '-', $id['dirname'].'/'.$id['filename']);
             if(empty($security)) global $security;
 
             // Embedded/Inline.
@@ -326,6 +327,7 @@ abstract class View {
 
         // String parameter; include.
         elseif(is_string($js) && is_file($js)){
+            $js = preg_replace('/\/+/','/', rtrim($js, '/'));
             $id = pathinfo($js);
             $id = str_replace('/', '-', $id['dirname'].'/'.$id['filename']);
             if(empty($security)) global $security;

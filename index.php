@@ -26,7 +26,14 @@ $uri = new URI;
 | Load the requested controller.                                               |
 \-----------------------------------------------------------------------------*/
 
+/* Always disallow these paths. */
+if(in_array($uri->class, ['controller', 'model', 'view'])){
+    http_response_code(404);
+    (new class extends Controller {})->view->html();
+}
+
 /* Load controller if one is present. */
+# TODO: resolve parent controllers and include them first; enable Hierarchical MVC :).
 $controller = CONTROLLER.'/'.$uri->class.'.php';
 if(file_exists($controller)) require($controller);
 if(class_exists($uri->class)){

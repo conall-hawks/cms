@@ -1,3 +1,4 @@
 # Specify filepatterns you want to assign special attributes.
+*.conf   eol=lf
 *.sh     eol=lf
 *.vim    eol=lf

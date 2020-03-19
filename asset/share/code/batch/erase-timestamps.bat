@@ -18,7 +18,6 @@ IF "%ERRORLEVEL%" NEQ "0" (GOTO Elevate) ELSE (GOTO Run)
 REM ############################################################################
 REM # Reset all filesystem timestamps to 01/01/1980 00:00.                     #
 REM ############################################################################
-
 SET RTS_SCRIPT="%TEMP%\%RANDOM%%RANDOM%%RANDOM%%RANDOM%%RANDOM%%RANDOM%.PS1"
 ECHO ################################################################################ >> %RTS_SCRIPT%
 ECHO # Resets all the timestamps in a file or folder.                               # >> %RTS_SCRIPT%

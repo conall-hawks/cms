@@ -365,24 +365,32 @@ class Upload extends Controller {
             $target_dir = dirname($target);
             if(!is_dir($target_dir)) mkdir($target_dir, 0770, true);
 
-            // Move the completed upload.
-            rename($source, $target);
-
-            // Cleanup temporary directory.
-            rmdir($upload_dir.'/'.$_POST['qquuid']);
-
-            // Add to database.
-            $user = load_controller('user');
-            if(!$this->db) $this->db();
-            if(!$this->db->set('upload', [
-                'privacy'  => $privacy,
-                'name'     => $_POST['qqfilename'],
-                'path'     => '/'.$target,
-                'user_id'  => $user->id(),
-                'password' => $password
-            ])){
+            // Ensure upload doesn't already exist.
+            if(is_file($target)){
                 $output['success'] = false;
-                $output['error']   = 'Failed to add upload to database.';
+                $output['error']   = 'File already uploaded.';
+            }
+
+            // Move the completed upload.
+            else{
+                rename($source, $target);
+
+                // Cleanup temporary directory.
+                rmdir($upload_dir.'/'.$_POST['qquuid']);
+
+                // Add to database.
+                $user = load_controller('user');
+                if(!$this->db) $this->db();
+                if(!$this->db->set('upload', [
+                    'privacy'  => $privacy,
+                    'name'     => $_POST['qqfilename'],
+                    'path'     => '/'.$target,
+                    'user_id'  => $user->id(),
+                    'password' => $password
+                ])){
+                    $output['success'] = false;
+                    $output['error']   = 'Failed to add upload to database.';
+                }
             }
 
             // Feedback.

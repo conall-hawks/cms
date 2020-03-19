@@ -84,7 +84,7 @@ class Security {
 #        ")));
         $adsense = ['ac', 'ad', 'ae', 'al', 'am', 'as', 'at', 'az', 'ba', 'be', 'bf', 'bg', 'bi', 'bj', 'bs', 'bt', 'by', 'ca', 'cat', 'cc', 'cd', 'cf', 'cg', 'ch', 'ci', 'cl', 'cm', 'co.ao', 'co.bw', 'co.ck', 'co.cr', 'co.id', 'co.il', 'co.in', 'co.jp', 'co.ke', 'co.kr', 'co.ls', 'com', 'co.ma', 'com.af', 'com.ag', 'com.ai', 'com.ar', 'com.au', 'com.bd', 'com.bh', 'com.bn', 'com.bo', 'com.br', 'com.bz', 'com.co', 'com.cu', 'com.cy', 'com.do', 'com.ec', 'com.eg', 'com.fj', 'com.gh', 'com.gi', 'com.gt', 'com.hk', 'com.jm', 'com.kh', 'com.kw', 'com.lb', 'com.ly', 'com.mm', 'com.mt', 'com.mx', 'com.my', 'com.na', 'com.nf', 'com.ng', 'com.ni', 'com.np', 'com.om', 'com.pa', 'com.pe', 'com.pg', 'com.ph', 'com.pk', 'com.pr', 'com.py', 'com.qa', 'com.sa', 'com.sb', 'com.sg', 'com.sl', 'com.sv', 'com.tj', 'com.tr', 'com.tw', 'com.ua', 'com.uy', 'com.vc', 'com.vn', 'co.mz', 'co.nz', 'co.th', 'co.tz', 'co.ug', 'co.uk', 'co.uz', 'co.ve', 'co.vi', 'co.za', 'co.zm', 'co.zw', 'cv', 'cz', 'de', 'dj', 'dk', 'dm', 'dz', 'ee', 'es', 'fi', 'fm', 'fr', 'ga', 'ge', 'gf', 'gg', 'gl', 'gm', 'gp', 'gr', 'gy', 'hn', 'hr', 'ht', 'hu', 'ie', 'im', 'io', 'iq', 'is', 'it', 'je', 'jo', 'kg', 'ki', 'kz', 'la', 'li', 'lk', 'lt', 'lu', 'lv', 'md', 'me', 'mg', 'mk', 'ml', 'mn', 'ms', 'mu', 'mv', 'mw', 'ne', 'nl', 'no', 'nr', 'nu', 'pl', 'pn', 'ps', 'pt', 'ro', 'rs', 'ru', 'rw', 'sc', 'se', 'sh', 'si', 'sk', 'sm', 'sn', 'so', 'sr', 'st', 'td', 'tg', 'tk', 'tl', 'tm', 'tn', 'to', 'tt', 'vg', 'vu', 'ws'];
         foreach($adsense as &$tld) $tld = 'https://adservice.google.'.$tld;
-        $adsense = implode($adsense, PHP_EOL.' ');
+        $adsense = implode(PHP_EOL.' ', $adsense);
         $csp = trim(preg_replace('/\s+/', ' ', "
             Content-Security-Policy:
                 base-uri        'self';
@@ -183,7 +183,7 @@ class Security {
             // Respond with ambiguous error message.
             while(ob_get_level()) ob_end_clean();
             http_response_code(403);
-            die();
+            die(ENVIRONMENT === 'development' ? 'Banned IP: '.$_SERVER['REMOTE_ADDR'] : '');
         }
     }
 
@@ -258,11 +258,13 @@ class Security_model extends Model {
                 $martians[] = ['127.0.0.0', '127.255.255.255'];
             }
             $ip = preg_replace('/\s+/', '', $ip);
-            $ipl = ip2long($ip);
-            foreach($martians as $martian){
-                $martian[0] = preg_replace('/\s+/', '', $martian[0]);
-                $martian[1] = preg_replace('/\s+/', '', $martian[1]);
-                if($ipl >= ip2long($martian[0]) && $ipl <= ip2long($martian[1])) return true;
+            if(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)){
+                $ipl = ip2long($ip);
+                foreach($martians as $martian){
+                    $martian[0] = preg_replace('/\s+/', '', $martian[0]);
+                    $martian[1] = preg_replace('/\s+/', '', $martian[1]);
+                    if($ipl >= ip2long($martian[0]) && $ipl <= ip2long($martian[1])) return true;
+                }
             }
         }
 
@@ -301,8 +303,8 @@ class Security_model extends Model {
         ");
 
         // Add constraints.
-        $this->db->exec("SET GLOBAL innodb_file_format    = `BARRACUDA`;");
-        $this->db->exec("SET GLOBAL innodb_large_prefix   = `ON`;");
+        #$this->db->exec("SET GLOBAL innodb_file_format    = `BARRACUDA`;");
+        #$this->db->exec("SET GLOBAL innodb_large_prefix   = `ON`;");
         $this->db->exec("SET GLOBAL innodb_file_per_table = `ON`;");
         $this->db->exec("ALTER TABLE `banned_ip` ADD UNIQUE (`ip`); ");
 

@@ -163,8 +163,8 @@ class Upload_model extends Model {
         ");
 
         // Add long prefix constraint.
-        $this->db->exec("SET GLOBAL innodb_file_format    = `BARRACUDA`;");
-        $this->db->exec("SET GLOBAL innodb_large_prefix   = `ON`;");
+        #$this->db->exec("SET GLOBAL innodb_file_format    = `BARRACUDA`;");
+        #$this->db->exec("SET GLOBAL innodb_large_prefix   = `ON`;");
         $this->db->exec("SET GLOBAL innodb_file_per_table = `ON`;");
         $this->db->exec("ALTER TABLE `upload` ADD UNIQUE (`path`); ");
 

@@ -39,7 +39,14 @@ window.listen(["mousedown", "keydown"], function(event){
     }
 });
 
-
+/*-----------------------------------------------------------------------------\
+| Disable Dark Reader.                                                         |
+\-----------------------------------------------------------------------------*/
+window.listen("DOMContentLoaded", function(){
+    if(document.querySelector(".darkreader")){
+        alert("I love Dark Reader too!\n\nHowever, Dark Reader is not necessary on this site.\nIn fact, it only messes up its styling; I suggest you disable it for this site.");
+    }
+});
 
 //var eventKeydownButton = function(event){
 //    if(event.keyCode !== 13) return;

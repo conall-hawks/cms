@@ -15,6 +15,6 @@ ECHO I'm minimized, hooray!
 PAUSE
 
 REM ############################################################################
-REM # Shorthand way of doing this.                                             #
+REM # A shorthand way to minimize to the taskbar.                              #
 REM ############################################################################
-IF NOT DEFINED MINI SET MINI=1 && START "" /MIN "%~dpnx0" %* && EXIT
+IF NOT DEFINED MINI SET MINI=1 && START /MIN "" "%COMSPEC%" /C "%~dpnx0" %* && EXIT

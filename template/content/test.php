@@ -9,6 +9,8 @@
 
 echo title('hello c sharp lol<br />');
 
+
+echo css_hex_to_rgb('ffff');
 #/* Get data from "API". */
 #$url = 'https://finance.yahoo.com/quote/MSFT/key-statistics?p='.$ticker;
 #$curl = curl_init();

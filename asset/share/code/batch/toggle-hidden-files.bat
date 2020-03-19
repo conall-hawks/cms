@@ -15,22 +15,24 @@ IF "%ERRORLEVEL%" NEQ "0" (GOTO Elevate) ELSE (GOTO Run)
 
 :Run
 
-
-REG QUERY "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Hidden | Find "0x2"
-IF %ERRORLEVEL% == 0 GOTO on
-IF %ERRORLEVEL% == 1 GOTO off
+REM ############################################################################
+REM # Check the registry and toggle show hidden files configuration.           #
+REM ############################################################################
+REG QUERY "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" | Find "0x2"
+IF "%ERRORLEVEL%" EQU "0" GOTO On
+IF "%ERRORLEVEL%" EQU "1" GOTO Off
 EXIT /B
 
-:on
-    REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Hidden /t REG_DWORD /d 1 /f
-    REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ShowSuperHidden /t REG_DWORD /d 1 /f
-    GOTO end
+:On
+    REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t "REG_DWORD" /d "1" /f
+    REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSuperHidden" /t "REG_DWORD" /d "1" /f
+    GOTO End
 
-:off
-    REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Hidden /t REG_DWORD /d 2 /f
-    REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ShowSuperHidden /t REG_DWORD /d 0 /f
-    GOTO end
+:Off
+    REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t "REG_DWORD" /d "2" /f
+    REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSuperHidden" /t "REG_DWORD" /d "0" /f
+    GOTO End
 
-:end
-    TASKKILL /F /IM explorer.exe
+:End
+    TASKKILL /F /IM "explorer.exe"
     START "" "%WINDIR%/explorer.exe"

@@ -110,7 +110,8 @@
 
 <!-- Prefix Free. -->
 <script nonce="<?php echo $security->nonce(); ?>">
-    jsAsync("https://cdn.jsdelivr.net/npm/prefixfree@latest/prefixfree.min.js", "/asset/misc/prefix-free.js", function(){StyleFix.process()});
+    // Temporarily disabled; causes double page load.
+    //jsAsync("https://cdn.jsdelivr.net/npm/prefixfree@latest/prefixfree.min.js", "/asset/misc/prefix-free.js", function(){StyleFix.process()});
 </script>
 
 <!-- Syntax Highlighting. -->
@@ -143,15 +144,15 @@
 </script>
 
 <!-- Google Adsense. -->
-<!-- <script async defer nonce="<?php echo $security->nonce(); ?>" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
-<!-- <script nonce="<?php echo $security->nonce(); ?>">
+<script async defer nonce="<?php echo $security->nonce(); ?>" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script nonce="<?php echo $security->nonce(); ?>">
     if(typeof window.startAdsense !== "number") window.startAdsense = setInterval(function(){
         if(typeof window.adsbygoogle === "object"){
             clearInterval(window.startAdsense);
             window.adsbygoogle.push({});
         }
     }, 100);
-</script> -->
+</script>
 
 <!-- Google Analytics. -->
 <script async defer nonce="<?php echo $security->nonce(); ?>" src="https://www.google-analytics.com/analytics.js"></script>
@@ -165,27 +166,6 @@
 
 <!-- Function throttle. -->
 <script nonce="<?php echo $security->nonce(); ?>">function throttle(n,l,t){var a,e,u,r,i=0;t||(t={});var o=function(){i=t.leading===!1?0:Date.now(),a=null,r=n.apply(e,u),a||(e=u=null)},c=function(){var c=Date.now();i||t.leading!==!1||(i=c);var f=l-(c-i);return e=this,u=arguments,0>=f||f>l?(a&&(clearTimeout(a),a=null),i=c,r=n.apply(e,u),a||(e=u=null)):a||t.trailing===!1||(a=setTimeout(o,f)),r};return c.cancel=function(){clearTimeout(a),i=0,a=e=u=null},c};</script>
-
-<?php if(in_array(strtolower(date('M')), ['nov', 'dec', 'jan', 'feb'])){ ?>
-    <!-- Snow during the Winter months. -->
-    <script async nonce="<?php echo $security->nonce(); ?>" src="https://cdn.jsdelivr.net/npm/jquery-snowfall@latest/dist/snowfall.min.js"></script>
-    <script nonce="<?php echo $security->nonce(); ?>">
-        var startSnowfall = setInterval(function(){
-            if(typeof document.body === "object" && typeof snowFall === "object"){
-                clearInterval(startSnowfall);
-                document.body.style.float = "left";
-                document.body.style.width = "100%";
-                try{snowFall.snow(document.body, "clear")}catch(e){}
-                snowFall.snow(document.body, {flakeColor: "#BBB", flakeCount:50, maxSpeed:5, round:true});
-            }
-        }, 1000);
-    </script>
-<?php } ?>
-
-<?php if(in_array(strtolower(date('M')), ['mar', 'apr', 'may', 'jun'])){ ?>
-    <!-- Sparkles during the Spring months. -->
-    <script async nonce="<?php echo $security->nonce(); ?>" src="<?php echo ASSET.'/misc/fairy-dust.js'; ?>"></script>
-<?php } ?>
 
 <!-- Websocket address. -->
 <script>window.websocketAddress = "<?php echo $_SERVER['SERVER_NAME']; ?>";</script>

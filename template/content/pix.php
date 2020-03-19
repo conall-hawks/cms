@@ -6,5 +6,9 @@
 
 <article>
     <h1>Latest Posts</h1>
-    <?php print_r($pix->model->get_boards()); ?>
+    <p>
+        This section is under construction. You can still navigate to individual
+        boards using the links on the left.
+    </p>
+    <!-- <pre><?php print_r($pix->model->get_boards()); ?></pre> -->
 </article>

@@ -92,13 +92,13 @@
                                 <?php if($ext === 'url'){ ?>
                                     <td title="<?php echo $url; ?>">
                                         <a href="<?php echo $url; ?>" target="_blank">
-                                            <?php echo title($name); ?>
+                                            <div><?php echo title($name); ?></div>
                                         </a>
                                     </td>
                                 <?php }else{ ?>
                                     <td<?php if($inode->isFile()) echo ' title="'.$name.($ext ? '.'.$ext : '').'"'; ?>>
                                         <a class="ajax" href="<?php echo $url; ?>">
-                                            <?php echo title($name); ?>
+                                            <div><?php echo title($name); ?></div>
                                          </a>
                                     </td>
                                 <?php } ?>

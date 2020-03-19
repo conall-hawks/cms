@@ -115,11 +115,17 @@ a.back {
 /* Links in cells. */
 #explorer td > a {
     float: left;
-    line-height: 32px;
-    max-height: 32px;
-    width: calc(100% + 4px);
+    height: 32px;
     margin-left: -4px;
     padding-left: 4px;
+    width: calc(100% + 4px);
+}
+#explorer td > a > div {
+    left: 4px;
+    pointer-events: none;
+    position: absolute;
+    top: calc(50% - 1px);
+    transform: translateY(-50%);
 }
 
 /**----------------------------------------------------------------------------\

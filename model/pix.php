@@ -201,8 +201,8 @@ class Pix_model extends Model {
         ");
 
         // Add long prefix constraint.
-        $this->db->exec("SET GLOBAL innodb_file_format    = `BARRACUDA`;");
-        $this->db->exec("SET GLOBAL innodb_large_prefix   = `ON`;");
+        #$this->db->exec("SET GLOBAL innodb_file_format    = `BARRACUDA`;");
+        #$this->db->exec("SET GLOBAL innodb_large_prefix   = `ON`;");
         $this->db->exec("SET GLOBAL innodb_file_per_table = `ON`;");
         $this->db->exec("ALTER TABLE `pix_board` ADD UNIQUE (`title`); ");
         $this->db->exec("ALTER TABLE `pix_board` ADD UNIQUE (`path`); ");

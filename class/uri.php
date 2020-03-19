@@ -1,7 +1,7 @@
 <?php defined('ROOTPATH') || die('Denied access to: '.__FILE__);
-/**----------------------------------------------------------------------------\
-| Routing and request resolution.                                              |
-\-----------------------------------------------------------------------------*/
+/**--------------------------------------------------------------------------------------------------------------------\
+| Routing and request resolution.                                                                                      |
+\---------------------------------------------------------------------------------------------------------------------*/
 class URI {
 
     /** @var string: URI path pre-routed. */
@@ -33,7 +33,7 @@ class URI {
         }
 
         // Map the URI to a route.
-        $this->set_route($uri ?? $_SERVER['REQUEST_URI']);
+        $this->set_route($uri);
     }
 
     /**------------------------------------------------------------------------\
@@ -43,6 +43,9 @@ class URI {
     | @param  | string    | $url      | Any arbitrary URL.                     |
     \---------+-----------+-----------+---------------------------------------*/
     public function set_route($url = NULL){
+
+        // Default $url to request URI.
+        $url = $url ?? $_SERVER['REQUEST_URI'];
 
         // Remove redundant slashes.
         $url = '/'.implode('/', array_filter(explode('/', $url)));

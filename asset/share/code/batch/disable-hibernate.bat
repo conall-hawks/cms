@@ -19,6 +19,5 @@ REM ############################################################################
 REM # Turn off hibernation.                                                    #
 REM ############################################################################
 ECHO Disabling hibernation...
-ECHO ON
 POWERCFG /H OFF
-@TIMEOUT /T 5
+TIMEOUT /T 5

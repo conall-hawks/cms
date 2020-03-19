@@ -18,6 +18,7 @@ IF "%ERRORLEVEL%" NEQ "0" (GOTO Elevate) ELSE (GOTO Run)
 REM ############################################################################
 REM # Disable NetBIOS over TCP/IP on all interfaces.                           #
 REM ############################################################################
+ECHO Disabling NetBIOS over TCP/IP...
 FOR /L %%I IN (1,1,64) DO (
     WMIC NICCONFIG WHERE INDEX=%%I CALL SETTCPIPNETBIOS 2
 )

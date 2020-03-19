@@ -3,7 +3,7 @@
 +------------------------------------------------------------------------------+
 | Usage:                                                                       |
 |     <script>                                                                 |
-|         cssAsync('https://cdn.example.com/js/script.js', '/js/script.js');   |
+|         cssAsync("https://cdn.example.com/js/script.js", "/js/script.js");   |
 |     <script>                                                                 |
 +---------+-----------+----------+---------------------------------------------|
 | @param  | string    | primary  | Primary URL (typically a CDN).              |

@@ -45,19 +45,6 @@ function link_active($href){
 }
 
 /**----------------------------------------------------------------------------\
-| Parent paths resolution.                                                     |
-\-----------------------------------------------------------------------------*/
-function get_parent_paths($path){
-    $path  = array_filter(explode('/', $path));
-    $count = count($path);
-    $paths = [];
-    for($i = 1; $i <= $count; $i++){
-        $paths[] = implode('/', array_slice($path, 0, $i));
-    }
-    return $paths;
-}
-
-/**----------------------------------------------------------------------------\
 | Subtitle HTML construction; creates links to each parent path.               |
 \-----------------------------------------------------------------------------*/
 function html_subtitle(){
@@ -139,6 +126,12 @@ require(ASSET.'/share/code/php/trim-suffix.php');
 
 /* Delete a file or directories recursively. */
 require(ASSET.'/share/code/php/unlink-recursive.php');
+
+/* MIME type common extension resolution. */
+require(ASSET.'/share/code/php/css-hex-to-rgb.php');
+
+/* Parent paths resolution. */
+require(ASSET.'/share/code/php/parent-paths-get.php');
 
 /**----------------------------------------------------------------------------\
 | Standard logging facility.                                                   |

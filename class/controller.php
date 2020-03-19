@@ -98,5 +98,7 @@ abstract class Controller {
     }
 }
 
-/* Private controllers (cannot be accessed by a URL). */
+/**----------------------------------------------------------------------------\
+| Private controller class (cannot be accessed by a URL).                      |
+\-----------------------------------------------------------------------------*/
 abstract class _Controller extends Controller {}

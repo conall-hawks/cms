@@ -65,7 +65,7 @@
 .collapsible input + label         { background-image: url("/asset/icon/expand.svg"), url("/asset/icon/dir.png"); }
 .collapsible input + label:hover   { filter: brightness(150%); }
 .collapsible input:checked + label { background-image: url("/asset/icon/collapse.svg"), url("/asset/icon/dir.png"); }
-.collapsible li > a                { background-image: url(""), url("/asset/icon/file.svg"); }
+.collapsible li > a                { background-image: url("/asset/icon/file.svg"); }
 .collapsible li > a:hover          { filter: brightness(150%); }
 
 /*-----------------------------------------------------------------------------\

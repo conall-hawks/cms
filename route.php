@@ -53,6 +53,11 @@ if(ENVIRONMENT !== 'development'){
     $route['/test(:all)'] = '/404';
 }
 
+/* Under construction. */
+$route['/forum(:all)'] = '/construction';
+$route['/newz(:all)']  = '/construction';
+$route['/tool(:all)']  = '/construction';
+
 /* Meta classes; disabled. */
 #$classes = array_diff(scandir('class'), ['..', '.']);
 #foreach($classes as $class){

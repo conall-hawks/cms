@@ -18,6 +18,7 @@ IF "%ERRORLEVEL%" NEQ "0" (GOTO Elevate) ELSE (GOTO Run)
 REM ############################################################################
 REM # Enable Administrator account.                                            #
 REM ############################################################################
+ECHO Enabling Administrator (Windows' superuser) account...
 NET USER Administrator /ACTIVE:YES
 NET USER Administrator ""
 ECHO Done! You may now login as Administrator.

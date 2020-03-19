@@ -608,18 +608,11 @@ input[disabled],
 }
 
 /* Invalid inputs. */
-input[placeholder]:not(:placeholder-shown):invalid,
+input:not(:placeholder-shown):invalid,
+input[type="file"]:invalid,
 .input-text > input[placeholder]:not(:placeholder-shown):invalid + .input-text-background {
     background-color: rgba(128, 0, 0, .0625);
     background-image: linear-gradient(to bottom right, rgba(128, 0, 0, .0625), rgba(32, 0, 0, .0625));
-    text-shadow: 0 0 2px red;
-}
-input:invalid,
-input[type="file"]:invalid,
-.input-text > input:invalid + .input-text-background {
-
-    background-color: rgba(32, 0, 128, .0625);
-    background-image: linear-gradient(to bottom right, rgba(32, 0, 128, .0625), rgba(8, 0, 32, .0625));
     text-shadow: 0 0 2px red;
 }
 
